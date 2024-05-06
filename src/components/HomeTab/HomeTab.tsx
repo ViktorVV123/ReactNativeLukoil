@@ -1,101 +1,108 @@
 import {View, ScrollView, StyleSheet} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import {Element} from './Element.tsx';
 
 export const HomeTab = () => {
   const data = [
     {
-      id: 1,
+      id: '1',
       name: 'Light 1',
       scene: '3 Scenes',
       sub: 'Kitchen',
       text: 'Hello World!',
     },
     {
-      id: 2,
+      id: '2',
       name: 'Light 2',
       scene: '2 Scenes',
       sub: 'Kitchen',
       text: 'Hello World2!',
     },
     {
-      id: 3,
+      id: '3',
       name: 'Light 3',
       scene: '5 Scenes',
       sub: 'Living room',
       text: 'Hello World3!',
     },
     {
-      id: 1,
+      id: '4',
       name: 'Light 4',
       scene: '3 Scenes',
       sub: 'Kitchen',
       text: 'Hello World4!',
     },
     {
-      id: 1,
+      id: '5',
       name: 'Light 5',
       scene: '4 Scenes',
       sub: 'Kitchen',
       text: 'Hello World5!',
     },
     {
-      id: 1,
+      id: '6',
       name: 'Light 6',
       scene: '3 Scenes',
       sub: 'Bedroom',
       text: 'Hello World6!',
     },
     {
-      id: 1,
+      id: '7',
       name: 'Light 7',
       scene: '1 Scenes',
       sub: 'Kitchen',
       text: 'Hello World7!',
     },
     {
-      id: 1,
+      id: '8',
       name: 'Light 8',
       scene: '5 Scenes',
       sub: 'Bedroom',
       text: 'Hello World8!',
     },
     {
-      id: 1,
+      id: '9',
       name: 'Light 9',
       scene: '2 Scenes',
       sub: 'Kitchen',
       text: 'Hello World9!',
     },
     {
-      id: 4,
+      id: '10',
       name: 'Light 10',
       scene: '3 Scenes',
       sub: 'Kitchen',
       text: 'Hello World10!',
     },
     {
-      id: 5,
+      id: '11',
       name: 'Light 11',
       scene: '1 Scenes',
       sub: 'Living room',
       text: 'Hello World11!',
     },
     {
-      id: 6,
+      id: '12',
       name: 'Light 12',
       scene: '3 Scenes',
       sub: 'Kitchen',
       text: 'Hello World12!',
     },
     {
-      id: 7,
+      id: '13',
       name: 'Light 13',
       scene: '2 Scenes',
       sub: 'Living room',
       text: 'Hello World13!',
     },
   ];
+
+  const [selectText, setSelectText] = useState('');
+  const handlePress = (id: string) => {
+    const item = data.find(items => items.id === id);
+    setSelectText(item);
+  };
+
   return (
     <View style={styles.container}>
       {/* <Button
@@ -106,6 +113,7 @@ export const HomeTab = () => {
         <ScrollView showsVerticalScrollIndicator={false}>
           {data.map((el, index) => (
             <Element
+              onPress={handlePress}
               id={el.id}
               name={el.name}
               scene={el.scene}

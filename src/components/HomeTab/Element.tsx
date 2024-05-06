@@ -9,12 +9,14 @@ export const Element = ({
   sub,
   text,
   id,
+  onPress,
 }: {
   name: string;
   scene: string;
   sub: string;
   text: string;
-  id: number;
+  id: string;
+  onPress: any;
 }) => {
   return (
     <View style={styles.containerEl}>
@@ -30,7 +32,7 @@ export const Element = ({
       <View style={styles.containerSubTitle}>
         <Text style={styles.subTitle}>{scene}</Text>
         <View style={{marginLeft: 20}}>
-          <ArrowIcon id={id} text={text} />
+          <ArrowIcon id={id} onPress={onPress} text={text} />
         </View>
       </View>
     </View>

@@ -11,14 +11,10 @@ import {
 } from 'react-native';
 import {useState} from 'react';
 
-export const ArrowIcon = ({text, id}: {text: string; id: number}) => {
+export const ArrowIcon = ({id, onPress, text}: {id: string,text: string,onPress: any}) => {
   const [modalVisible, setModalVisible] = useState(false);
-  const [selectText, setSelectText] = useState('');
-  const textPress = (text: string) => {
-    setSelectText(text);
-  };
   return (
-    <TouchableOpacity onPress={() => setModalVisible(true)}>
+    <TouchableOpacity onPress={() => setModalVisible(onPress(id))}>
       <Svg height={24} viewBox="0 -960 960 960" width={24} fill="#fff">
         <Path d="M321-80l-71-71 329-329-329-329 71-71 400 400L321-80z" />
       </Svg>
@@ -32,10 +28,7 @@ export const ArrowIcon = ({text, id}: {text: string; id: number}) => {
         }}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text style={styles.modalText}>
-              Hello World!Hello World!Hello World!Hello World!Hello World!Hello
-              World!Hello World!Hello World!Hello World!
-            </Text>
+            <Text style={styles.modalText}>{text}</Text>
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={() => setModalVisible(!modalVisible)}>
