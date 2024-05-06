@@ -1,11 +1,11 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import {SvgComponent} from '../../icons/HeaderIcon/CloudIcon.tsx';
+import {CloudIcon} from '../../icons/HeaderIcon/CloudIcon.tsx';
 
 export const Cloud = () => {
   return (
     <View style={styles.containerCloud}>
-      <SvgComponent />
+      <CloudIcon />
     </View>
   );
 };

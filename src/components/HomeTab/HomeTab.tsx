@@ -4,26 +4,115 @@ import {Element} from './Element.tsx';
 
 export const HomeTab = () => {
   const data = [
-    {name: 'Light 1', scene: '3 Scenes', sub: 'Kitchen'},
-    {name: 'Light 2', scene: '2 Scenes', sub: 'Kitchen'},
-    {name: 'Light 3', scene: '5 Scenes', sub: 'Living room'},
-    {name: 'Light 4', scene: '3 Scenes', sub: 'Kitchen'},
-    {name: 'Light 5', scene: '4 Scenes', sub: 'Kitchen'},
-    {name: 'Light 6', scene: '3 Scenes', sub: 'Bedroom'},
-    {name: 'Light 7', scene: '1 Scenes', sub: 'Kitchen'},
-    {name: 'Light 8', scene: '5 Scenes', sub: 'Bedroom'},
-    {name: 'Light 9', scene: '2 Scenes', sub: 'Kitchen'},
-    {name: 'Light 10', scene: '3 Scenes', sub: 'Kitchen'},
-    {name: 'Light 11', scene: '1 Scenes', sub: 'Living room'},
-    {name: 'Light 12', scene: '3 Scenes', sub: 'Kitchen'},
-    {name: 'Light 13', scene: '2 Scenes', sub: 'Living room'},
+    {
+      id: 1,
+      name: 'Light 1',
+      scene: '3 Scenes',
+      sub: 'Kitchen',
+      text: 'Hello World!',
+    },
+    {
+      id: 2,
+      name: 'Light 2',
+      scene: '2 Scenes',
+      sub: 'Kitchen',
+      text: 'Hello World2!',
+    },
+    {
+      id: 3,
+      name: 'Light 3',
+      scene: '5 Scenes',
+      sub: 'Living room',
+      text: 'Hello World3!',
+    },
+    {
+      id: 1,
+      name: 'Light 4',
+      scene: '3 Scenes',
+      sub: 'Kitchen',
+      text: 'Hello World4!',
+    },
+    {
+      id: 1,
+      name: 'Light 5',
+      scene: '4 Scenes',
+      sub: 'Kitchen',
+      text: 'Hello World5!',
+    },
+    {
+      id: 1,
+      name: 'Light 6',
+      scene: '3 Scenes',
+      sub: 'Bedroom',
+      text: 'Hello World6!',
+    },
+    {
+      id: 1,
+      name: 'Light 7',
+      scene: '1 Scenes',
+      sub: 'Kitchen',
+      text: 'Hello World7!',
+    },
+    {
+      id: 1,
+      name: 'Light 8',
+      scene: '5 Scenes',
+      sub: 'Bedroom',
+      text: 'Hello World8!',
+    },
+    {
+      id: 1,
+      name: 'Light 9',
+      scene: '2 Scenes',
+      sub: 'Kitchen',
+      text: 'Hello World9!',
+    },
+    {
+      id: 4,
+      name: 'Light 10',
+      scene: '3 Scenes',
+      sub: 'Kitchen',
+      text: 'Hello World10!',
+    },
+    {
+      id: 5,
+      name: 'Light 11',
+      scene: '1 Scenes',
+      sub: 'Living room',
+      text: 'Hello World11!',
+    },
+    {
+      id: 6,
+      name: 'Light 12',
+      scene: '3 Scenes',
+      sub: 'Kitchen',
+      text: 'Hello World12!',
+    },
+    {
+      id: 7,
+      name: 'Light 13',
+      scene: '2 Scenes',
+      sub: 'Living room',
+      text: 'Hello World13!',
+    },
   ];
   return (
     <View style={styles.container}>
+      {/* <Button
+        title="Go to Details"
+        onPress={() => navigation.navigate('Details')}
+      />*/}
       <View style={styles.scroll}>
         <ScrollView showsVerticalScrollIndicator={false}>
           {data.map((el, index) => (
-            <Element name={el.name} scene={el.scene} sub={el.sub} key={index} />
+            <Element
+              id={el.id}
+              name={el.name}
+              scene={el.scene}
+              sub={el.sub}
+              text={el.text}
+              key={index}
+            />
           ))}
         </ScrollView>
       </View>
