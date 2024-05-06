@@ -11,7 +11,15 @@ import {
 } from 'react-native';
 import {useState} from 'react';
 
-export const ArrowIcon = ({id, onPress, text}: {id: string,text: string,onPress: any}) => {
+export const ArrowIcon = ({
+  id,
+  onPress,
+  text,
+}: {
+  id: string;
+  text: string;
+  onPress: any;
+}) => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <TouchableOpacity onPress={() => setModalVisible(onPress(id))}>
@@ -20,7 +28,7 @@ export const ArrowIcon = ({id, onPress, text}: {id: string,text: string,onPress:
       </Svg>
       <Modal
         animationType="slide"
-        transparent={true}
+        transparent={true} //перекрывает полносьб. задний фон
         visible={modalVisible}
         onRequestClose={() => {
           Alert.alert('Modal has been closed.');
