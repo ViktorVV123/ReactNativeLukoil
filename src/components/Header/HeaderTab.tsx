@@ -3,6 +3,7 @@ import React from 'react';
 import {Menu} from './Menu.tsx';
 import {Cloud} from './Cloud.tsx';
 import {Chart} from './Chart.tsx';
+
 export const HeaderTab = () => {
   return (
     <View style={styles.container}>

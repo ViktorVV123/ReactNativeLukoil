@@ -1,48 +1,14 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, View} from 'react-native';
+import {SafeAreaView, StyleSheet} from 'react-native';
 import {TabBar} from './src/components/TabBar/TabBar.tsx';
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {DetailsScreen} from './src/components/DetailsScreen/DetailsScreen.tsx';
-import {HomeTab} from './src/components/HomeTab/HomeTab.tsx';
-import {CloudIcon} from './src/icons/HeaderIcon/CloudIcon.tsx';
-import {MenuIcon} from './src/icons/HeaderIcon/MenuIcon.tsx';
-import {ChartIcon} from './src/icons/HeaderIcon/ChartIcon.tsx';
-
-const Stack = createNativeStackNavigator();
 
 function App(): React.JSX.Element {
-  const commonHeaderOptions = {
-    headerStyle: {backgroundColor: '#06165e'},
-    headerTintColor: 'white',
-    headerRight: () => (
-      <View style={{flexDirection: 'row', marginRight: 5}}>
-        <View style={{marginRight: 10}}>
-          <CloudIcon />
-        </View>
-        <View>
-          <ChartIcon />
-        </View>
-      </View>
-    ),
-    headerLeft: () => (
-      <View style={{marginRight: 10}}>
-        <MenuIcon />
-      </View>
-    ),
-    headerTitleStyle: {fontSize: 23},
-    headerTitleAlign: 'left',
-  };
+  /*StatusBar.setBackgroundColor('green'); //изменить верхнюю часть где заряд батарейки или сеть */
+
   return (
     <NavigationContainer>
       <SafeAreaView style={styles.containerApp}>
-        <Stack.Navigator
-          initialRouteName="Home"
-          // @ts-ignore
-          screenOptions={commonHeaderOptions}>
-          <Stack.Screen name="Home" component={HomeTab} />
-          <Stack.Screen name="Details" component={DetailsScreen} />
-        </Stack.Navigator>
         <TabBar />
       </SafeAreaView>
     </NavigationContainer>
