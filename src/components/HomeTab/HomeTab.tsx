@@ -1,7 +1,10 @@
-import {View, ScrollView, StyleSheet} from 'react-native';
+import {View, ScrollView, StyleSheet, Button} from 'react-native';
 import React, {useState} from 'react';
 import {Element} from './Element.tsx';
-import { ModalComponentReact } from "../Modal/ModalComponentReact.tsx";
+import {ModalComponentReact} from '../Modal/ModalComponentReact.tsx';
+import {useModal} from '../../Style/ModalContext.tsx';
+import { ModalComponent } from "../../Style/ModalComponent.tsx";
+
 
 export const HomeTab = () => {
   const data = [
@@ -98,20 +101,18 @@ export const HomeTab = () => {
     },
   ];
 
-  const [bayBit, setSelectText] = useState('');
+  const [selectText, setSelectText] = useState('');
   const handlePress = (id: string) => {
     const item = data.find(items => items.id === id);
     setSelectText(item);
   };
+  const {toggleModal} = useModal();
 
   return (
     <View style={styles.container}>
-      {/* <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate('Details')}
-      />*/}
       <View style={styles.scroll}>
-        <ModalComponentReact />
+        <Button title="Go go gogo " onPress={() => toggleModal()} />
+        <ModalComponent />
         <ScrollView showsVerticalScrollIndicator={false}>
           {data.map((el, index) => (
             <Element
@@ -141,5 +142,6 @@ const styles = StyleSheet.create({
   },
   scroll: {
     flex: 1,
+
   },
 });

@@ -12,23 +12,12 @@ export const ModalComponentReact = () => {
   return (
     <View>
       <Button title="Show modal" onPress={toggleModal} />
-
       <Modal
         useNativeDriver={true}
         hideModalContentWhileAnimating={true}
         backdropColor={'none'}
-        isVisible={isModalVisible}
-        style={{justifyContent: 'center', alignItems: 'center'}}>
-        <View
-          style={{
-            width: 200,
-            height: 200,
-            backgroundColor: '#06165e',
-            justifyContent: 'center',
-            alignItems: 'center',
-            alignContent: 'center',
-            borderRadius: 20,
-          }}>
+        isVisible={isModalVisible}>
+        <View>
           <Text style={{color: 'white', fontSize: 30, margin: 20}}>Hello!</Text>
 
           <Button title="Close" onPress={toggleModal} />
