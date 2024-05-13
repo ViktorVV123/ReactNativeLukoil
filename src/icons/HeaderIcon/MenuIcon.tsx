@@ -6,49 +6,33 @@ import {useNavigation} from '@react-navigation/native';
 export const MenuIcon = () => {
   const [openList, setOpenList] = useState(false);
   const navigation = useNavigation();
-  const toggleDropdown = () => setOpenList(!openList);
+
+  const toggleDropdown = () => setOpenList(prevState => !prevState);
+  const handleNavigation = (route: any) => {
+    navigation.navigate(route);
+    toggleDropdown();
+  };
+
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={toggleDropdown}>
-        <Svg height={30} fill={'white'} viewBox="0 -960 960 960" width={35}>
+        <Svg height={30} fill="white" viewBox="0 -960 960 960" width={35}>
           <Path d="M120-240v-80h400v80H120zm0-200v-80h720v80H120zm0-200v-80h720v80H120z" />
         </Svg>
       </TouchableOpacity>
       {openList && (
         <View style={styles.dropdown}>
-          <TouchableOpacity
-            onPress={() => {
-              navigation.navigate('Home');
-              toggleDropdown();
-            }}>
-            <Text style={styles.text}>Home</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => {
-              navigation.navigate('Devices');
-              toggleDropdown();
-            }}>
-            <Text style={styles.text}>Devices</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => {
-              navigation.navigate('Scenes');
-              toggleDropdown();
-            }}>
-            <Text style={styles.text}>Scenes</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => {
-              navigation.navigate('Estates');
-              toggleDropdown();
-            }}>
-            <Text style={styles.text}>Estates</Text>
-          </TouchableOpacity>
+          {['Home', 'Devices', 'Scenes', 'Estates'].map(item => (
+            <TouchableOpacity key={item} onPress={() => handleNavigation(item)}>
+              <Text style={styles.text}>{item}</Text>
+            </TouchableOpacity>
+          ))}
         </View>
       )}
     </View>
   );
 };
+
 const styles = StyleSheet.create({
   container: {
     width: 100,
@@ -57,7 +41,7 @@ const styles = StyleSheet.create({
     width: '100%',
     marginTop: 20,
     position: 'absolute',
-    top: 20,
+    top: 30, // Поднято, чтобы избежать перекрытия с кнопкой
     zIndex: 10,
     backgroundColor: '#3760c9',
   },
@@ -68,6 +52,7 @@ const styles = StyleSheet.create({
     textAlign: 'left',
   },
 });
+
 /*
 export function MenuIcon() {
   const [visible, setVisible] = useState(false); // Состояние для управления видимостью списка

@@ -63,7 +63,9 @@ export const TabBar = () => {
         name="Devices"
         component={DevicesScreen}
         options={{
-          tabBarIcon: ({color}) => <DevicesIcon fill={color} />,
+          tabBarIcon: ({color}: {color: string}) => (
+            <DevicesIcon fill={color} />
+          ),
           ...defaultHeaderStyles,
         }}
       />
@@ -71,7 +73,7 @@ export const TabBar = () => {
         name="Scenes"
         component={ScenesNavigate}
         options={{
-          tabBarIcon: ({color}) => <ScenesIcon fill={color} />,
+          tabBarIcon: ({color}: {color: string}) => <ScenesIcon fill={color} />,
           ...defaultHeaderStyles,
         }}
       />
@@ -79,7 +81,9 @@ export const TabBar = () => {
         name="Estates"
         component={EstatesNavigate}
         options={{
-          tabBarIcon: ({color}) => <EstatesIcon fill={color} />,
+          tabBarIcon: ({color}: {color: string}) => (
+            <EstatesIcon fill={color} />
+          ),
           ...defaultHeaderStyles,
         }}
       />
