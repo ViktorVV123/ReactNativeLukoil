@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import Svg, {Path} from 'react-native-svg';
+import {useNavigation} from '@react-navigation/native';
 
 export const MenuIcon = () => {
   const [openList, setOpenList] = useState(false);
-  const items = ['Home', 'Devices', 'Scenes', 'Estates']; // Элементы списка
-
+  const navigation = useNavigation();
   const toggleDropdown = () => setOpenList(!openList);
   return (
     <View style={styles.container}>
@@ -16,11 +16,34 @@ export const MenuIcon = () => {
       </TouchableOpacity>
       {openList && (
         <View style={styles.dropdown}>
-          {items.map(item => (
-            <TouchableOpacity>
-              <Text style={styles.text}>{item}</Text>
-            </TouchableOpacity>
-          ))}
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('Home');
+              toggleDropdown();
+            }}>
+            <Text style={styles.text}>Home</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('Devices');
+              toggleDropdown();
+            }}>
+            <Text style={styles.text}>Devices</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('Scenes');
+              toggleDropdown();
+            }}>
+            <Text style={styles.text}>Scenes</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('Estates');
+              toggleDropdown();
+            }}>
+            <Text style={styles.text}>Estates</Text>
+          </TouchableOpacity>
         </View>
       )}
     </View>

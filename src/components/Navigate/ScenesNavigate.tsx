@@ -5,7 +5,10 @@ export function ScenesNavigate() {
   return (
     <View style={styles.containerApp}>
       <Text>123</Text>
-      <Image source={require('../../icons/HeaderIcon/test.png')}/>
+      <Image
+        style={{width: 400, height: 400}}
+        source={require('../../icons/HeaderIcon/test.png')}
+      />
     </View>
   );
 }
