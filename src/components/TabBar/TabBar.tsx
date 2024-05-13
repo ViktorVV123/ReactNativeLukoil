@@ -13,6 +13,28 @@ import {CloudIcon} from '../../icons/HeaderIcon/CloudIcon.tsx';
 import {ChartIcon} from '../../icons/HeaderIcon/ChartIcon.tsx';
 import {MenuIcon} from '../../icons/HeaderIcon/MenuIcon.tsx';
 
+const defaultHeaderStyles = {
+  headerStyle: {backgroundColor: '#06165e'},
+  headerTintColor: 'white',
+  headerRight: () => (
+    <View style={{flexDirection: 'row', marginRight: 5}}>
+      <View style={{marginRight: 10, marginLeft: 20}}>
+        <CloudIcon />
+      </View>
+      <View style={{marginRight: 20}}>
+        <ChartIcon />
+      </View>
+    </View>
+  ),
+  headerLeft: () => (
+    <View style={{marginRight: 10, marginLeft: 20}}>
+      <MenuIcon />
+    </View>
+  ),
+  headerTitleStyle: {fontSize: 23},
+  headerTitleAlign: 'left',
+};
+
 export const TabBar = () => {
   const Tab = createBottomTabNavigator();
   return (
@@ -34,25 +56,7 @@ export const TabBar = () => {
         component={HomeTab}
         options={{
           tabBarIcon: ({color}) => <HomeIcon fill={color} />,
-          headerStyle: {backgroundColor: '#06165e'},
-          headerTintColor: 'white',
-          headerRight: () => (
-            <View style={{flexDirection: 'row', marginRight: 5}}>
-              <View style={{marginRight: 10}}>
-                <CloudIcon />
-              </View>
-              <View style={{marginRight: 20}}>
-                <ChartIcon />
-              </View>
-            </View>
-          ),
-          headerLeft: () => (
-            <View style={{marginRight: 10, marginLeft: 20}}>
-              <MenuIcon />
-            </View>
-          ),
-          headerTitleStyle: {fontSize: 23},
-          headerTitleAlign: 'left',
+          ...defaultHeaderStyles,
         }}
       />
       <Tab.Screen
@@ -60,25 +64,7 @@ export const TabBar = () => {
         component={DevicesScreen}
         options={{
           tabBarIcon: ({color}) => <DevicesIcon fill={color} />,
-          headerStyle: {backgroundColor: '#06165e'},
-          headerTintColor: 'white',
-          headerRight: () => (
-            <View style={{flexDirection: 'row', marginRight: 5}}>
-              <View style={{marginRight: 10}}>
-                <CloudIcon />
-              </View>
-              <View style={{marginRight: 20}}>
-                <ChartIcon />
-              </View>
-            </View>
-          ),
-          headerLeft: () => (
-            <View style={{marginRight: 10, marginLeft: 20}}>
-              <MenuIcon />
-            </View>
-          ),
-          headerTitleStyle: {fontSize: 23},
-          headerTitleAlign: 'left',
+          ...defaultHeaderStyles,
         }}
       />
       <Tab.Screen
@@ -86,25 +72,7 @@ export const TabBar = () => {
         component={ScenesNavigate}
         options={{
           tabBarIcon: ({color}) => <ScenesIcon fill={color} />,
-          headerStyle: {backgroundColor: '#06165e'},
-          headerTintColor: 'white',
-          headerRight: () => (
-            <View style={{flexDirection: 'row', marginRight: 5}}>
-              <View style={{marginRight: 10, marginLeft: 20}}>
-                <CloudIcon />
-              </View>
-              <View style={{marginRight: 20}}>
-                <ChartIcon />
-              </View>
-            </View>
-          ),
-          headerLeft: () => (
-            <View style={{marginRight: 10, marginLeft: 20}}>
-              <MenuIcon />
-            </View>
-          ),
-          headerTitleStyle: {fontSize: 23},
-          headerTitleAlign: 'left',
+          ...defaultHeaderStyles,
         }}
       />
       <Tab.Screen
@@ -112,25 +80,7 @@ export const TabBar = () => {
         component={EstatesNavigate}
         options={{
           tabBarIcon: ({color}) => <EstatesIcon fill={color} />,
-          headerStyle: {backgroundColor: '#06165e'},
-          headerTintColor: 'white',
-          headerRight: () => (
-            <View style={{flexDirection: 'row', marginRight: 5}}>
-              <View style={{marginRight: 10, marginLeft: 20}}>
-                <CloudIcon />
-              </View>
-              <View style={{marginRight: 20}}>
-                <ChartIcon />
-              </View>
-            </View>
-          ),
-          headerLeft: () => (
-            <View style={{marginRight: 10, marginLeft: 20}}>
-              <MenuIcon />
-            </View>
-          ),
-          headerTitleStyle: {fontSize: 23},
-          headerTitleAlign: 'left',
+          ...defaultHeaderStyles,
         }}
       />
     </Tab.Navigator>

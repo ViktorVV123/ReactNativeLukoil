@@ -1,10 +1,11 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, View} from 'react-native';
 
 export function ScenesNavigate() {
   return (
     <View style={styles.containerApp}>
-      <Text style={styles.text}>Scenes</Text>
+      <Text>123</Text>
+      <Image source={require('../../icons/HeaderIcon/test.png')}/>
     </View>
   );
 }

@@ -1,10 +1,9 @@
 import {View, ScrollView, StyleSheet, Button} from 'react-native';
 import React, {useState} from 'react';
 import {Element} from './Element.tsx';
-import {ModalComponentReact} from '../Modal/ModalComponentReact.tsx';
-import {useModal} from '../../Style/ModalContext.tsx';
-import { ModalComponent } from "../../Style/ModalComponent.tsx";
-
+import {useModal} from '../../style/ModalContext.tsx';
+import {ModalComponent} from '../../style/ModalComponent.tsx';
+import {TextInputTab} from './TextInputTab.tsx';
 
 export const HomeTab = () => {
   const data = [
@@ -106,14 +105,22 @@ export const HomeTab = () => {
     const item = data.find(items => items.id === id);
     setSelectText(item);
   };
-  const {toggleModal} = useModal();
+  const {toggleModal, updateModalContent} = useModal();
+
+  const showModal = () => {
+    updateModalContent('test', {backgroundColor: 'green'});
+    toggleModal(true);
+  };
 
   return (
     <View style={styles.container}>
       <View style={styles.scroll}>
-        <Button title="Go go gogo " onPress={() => toggleModal()} />
+        <TextInputTab />
+        <Button title="Go go gogo " onPress={showModal} />
         <ModalComponent />
-        <ScrollView showsVerticalScrollIndicator={false}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{paddingVertical: 25}}>
           {data.map((el, index) => (
             <Element
               onPress={handlePress}
@@ -142,6 +149,5 @@ const styles = StyleSheet.create({
   },
   scroll: {
     flex: 1,
-
   },
 });

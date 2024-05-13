@@ -2,7 +2,7 @@ import React from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
 import {TabBar} from './src/components/TabBar/TabBar.tsx';
 import {NavigationContainer} from '@react-navigation/native';
-import {ModalProvider} from './src/Style/ModalContext.tsx';
+import {ModalProvider} from './src/style/ModalContext.tsx';
 
 function App(): React.JSX.Element {
   /*StatusBar.setBackgroundColor('green'); //изменить верхнюю часть где заряд батарейки или сеть */
