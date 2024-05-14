@@ -14,7 +14,7 @@ import {ChartIcon} from '../../icons/HeaderIcon/ChartIcon.tsx';
 import {MenuIcon} from '../../icons/HeaderIcon/MenuIcon.tsx';
 
 const defaultHeaderStyles = {
-  headerStyle: {backgroundColor: '#06165e'},
+  headerStyle: {backgroundColor: '#000000'},
   headerTintColor: 'white',
   headerRight: () => (
     <View style={{flexDirection: 'row', marginRight: 5}}>
@@ -36,7 +36,7 @@ const defaultHeaderStyles = {
 };
 
 export const TabBar = () => {
-  const Tab = createBottomTabNavigator();
+  const Tab = createBottomTabNavigator()
   return (
     <Tab.Navigator
       initialRouteName="Home"
@@ -44,7 +44,7 @@ export const TabBar = () => {
         tabBarActiveTintColor: 'white',
         tabBarInactiveTintColor: '#b6b4b4',
         tabBarStyle: {
-          backgroundColor: '#6A8FE6',
+          backgroundColor: '#000000',
           borderTopRightRadius: 25,
           borderTopLeftRadius: 25,
           position: 'absolute',
@@ -79,7 +79,7 @@ export const TabBar = () => {
       />
       <Tab.Screen
         name="Estates"
-        component={EstatesNavigate}
+        component={EstatesNavigate }
         options={{
           tabBarIcon: ({color}: {color: string}) => (
             <EstatesIcon fill={color} />
