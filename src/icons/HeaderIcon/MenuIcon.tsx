@@ -8,7 +8,7 @@ export const MenuIcon = () => {
   const navigation = useNavigation();
 
   const toggleDropdown = () => setOpenList(prevState => !prevState);
-  const handleNavigation = (route: any) => {
+  const handleNavigation = (route: string) => {
     navigation.navigate(route);
     toggleDropdown();
   };
