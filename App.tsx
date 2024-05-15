@@ -20,6 +20,7 @@ function App(): React.JSX.Element {
 const styles = StyleSheet.create({
   containerApp: {
     flex: 1,
+    backgroundColor: '#2E2E2E',
   },
 });
 

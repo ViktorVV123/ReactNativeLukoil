@@ -1,9 +1,46 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import {EventsComponent} from './EventsComponent.tsx';
 import {NewsComponent} from './NewsComponent.tsx';
+import {Calendars} from './Calendars.tsx';
 
 export function ScenesNavigate() {
+  const cases = {
+    '2024-05-03': {
+      marked: true,
+      dotColor: '#c9945a',
+      tasks: [
+        {
+          text: 'Комиссия по обеспечению стабильности деятельности организаций Группы "ЛУКОЙЛ" Бизнес-сегмента "Переработка и сбыт"',
+          time: '10:00 - 11:00',
+          category: 'Комиссия БС ПиС',
+        },
+      ],
+    },
+    '2024-05-15': {
+      marked: true,
+      dotColor: '#c9945a',
+      tasks: [
+        {
+          text: 'Комиссия по обеспечению стабильности деятельности организаций Группы "ЛУКОЙЛ" Бизнес-сегмента "Переработка и сбыт"',
+          time: '12:00 - 13:00',
+          category: 'Комиссия БС ПиС',
+        },
+      ],
+    },
+    '2024-05-20': {
+      marked: true,
+      dotColor: '#c9945a',
+      tasks: [
+        {
+          text: 'Комиссия по обеспечению стабильности деятельности организаций Группы "ЛУКОЙЛ" Бизнес-сегмента "Переработка и сбыт"',
+          time: '9:00 - 12:00',
+          category: 'Комиссия БС ПиС',
+        },
+      ],
+    },
+  };
+
   const newsTask = [
     {
       news: 'ЛУКОЙЛ и Ямало-Ненецкий автономный округ подписали дополнительное соглашение о сотрудничестве.',
@@ -57,32 +94,45 @@ export function ScenesNavigate() {
   ];
   return (
     <View style={styles.containerApp}>
-      <View style={{width: '50%', padding: 20}}>
-        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-          <Text style={styles.title}>Новости</Text>
-          <Text style={{color: 'white', fontSize: 18}}>14.05.2024</Text>
+      <ScrollView>
+        <View>
+          <Calendars cases={cases} />
         </View>
-        {newsTask.map((item, index) => (
-          <View>
-            <NewsComponent key={index} news={item.news} color={item.color} />
+        <View style={styles.position}>
+          <View style={{width: '50%', padding: 20}}>
+            <View
+              style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+              <Text style={styles.title}>Новости</Text>
+              <Text style={{color: 'white', fontSize: 18}}>14.05.2024</Text>
+            </View>
+            {newsTask.map((item, index) => (
+              <View>
+                <NewsComponent
+                  key={index}
+                  news={item.news}
+                  color={item.color}
+                />
+              </View>
+            ))}
           </View>
-        ))}
-      </View>
-      <View style={{width: '40%', padding: 20}}>
-        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-          <Text style={styles.title}>События</Text>
-          <Text style={{color: 'white', fontSize: 18}}>14.05.2024</Text>
+          <View style={{width: '40%', padding: 20}}>
+            <View
+              style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+              <Text style={styles.title}>События</Text>
+              <Text style={{color: 'white', fontSize: 18}}>14.05.2024</Text>
+            </View>
+            {events.map((item, index) => (
+              <EventsComponent
+                key={index}
+                event={item.event}
+                text={item.text}
+                color={item.color}
+                category={item.category}
+              />
+            ))}
+          </View>
         </View>
-        {events.map((item, index) => (
-          <EventsComponent
-            key={index}
-            event={item.event}
-            text={item.text}
-            color={item.color}
-            category={item.category}
-          />
-        ))}
-      </View>
+      </ScrollView>
     </View>
   );
 }
@@ -90,10 +140,16 @@ export function ScenesNavigate() {
 const styles = StyleSheet.create({
   containerApp: {
     flex: 1,
+    backgroundColor: '#2E2E2E',
+  },
+  position: {
     alignItems: 'flex-start',
     justifyContent: 'space-around',
-    backgroundColor: '#2E2E2E',
     flexDirection: 'row',
+    marginBottom: 40,
+  },
+  containerCalendar: {
+    backgroundColor: '#2E2E2E',
   },
   text: {
     color: 'white',
