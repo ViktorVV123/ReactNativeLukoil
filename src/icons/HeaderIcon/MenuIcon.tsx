@@ -38,7 +38,6 @@ const styles = StyleSheet.create({
     width: 100,
   },
   dropdown: {
-    width: '100%',
     marginTop: 20,
     position: 'absolute',
     top: 30, // Поднято, чтобы избежать перекрытия с кнопкой

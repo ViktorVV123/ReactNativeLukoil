@@ -1,5 +1,6 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 
 export function EstatesNavigate() {
   const news = [
@@ -21,14 +22,45 @@ export function EstatesNavigate() {
   ];
   return (
     <View style={styles.containerApp}>
-      <View style={styles.containerNew}>
-        {news.map((item, index) => (
-          <Text style={styles.textStyle} key={index}>
-            {item.new}
-          </Text>
-        ))}
-      </View>
-      <View />
+      <ScrollView>
+        <View style={styles.containerNew}>
+          {news.map((item, index) => (
+            <LinearGradient
+              key={index}
+              colors={['#444', '#222']}
+              style={styles.square}>
+              <Text style={styles.textStyle}>{item.new}</Text>
+            </LinearGradient>
+          ))}
+        </View>
+        <View style={styles.containerNew}>
+          {news.map((item, index) => (
+            <View key={index} style={styles.square1}>
+              <Text style={styles.textStyle1}>{item.new}</Text>
+            </View>
+          ))}
+        </View>
+        <View />
+        <View style={styles.containerNew}>
+          {news.map((item, index) => (
+            <View style={styles.square2}>
+              <Text key={index} style={styles.textStyle2}>
+                {item.new}
+              </Text>
+            </View>
+          ))}
+        </View>
+        <View style={styles.containerNew3}>
+          {news.map((item, index) => (
+            <View style={styles.square3}>
+              <Text key={index} style={styles.textStyle3}>
+                {item.new}
+              </Text>
+            </View>
+          ))}
+        </View>
+        <View />
+      </ScrollView>
     </View>
   );
 }
@@ -36,23 +68,82 @@ export function EstatesNavigate() {
 const styles = StyleSheet.create({
   containerApp: {
     flex: 1,
+    justifyContent: 'flex-start',
     alignItems: 'flex-start',
-    backgroundColor: '#2E2E2E',
-    flexDirection: 'row',
+    backgroundColor: '#2e2e2e', // Темный фон
+    padding: 20,
   },
   containerNew: {
-    backgroundColor: '#504f4f',
     flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
   },
-  text: {
-    color: 'white',
-    fontSize: 40,
-    marginBottom: 10,
+  square: {
+    width: 150,
+    height: 165,
+    /*aspectRatio: 1, // Соотношение сторон 1:1*/
+    borderRadius: 15,
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 5,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 4},
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
+    elevation: 5,
   },
   textStyle: {
-    marginLeft: 50,
-    borderColor: 'black',
-    fontSize: 15,
-    color: 'white',
+    fontSize: 14,
+    color: '#FFF', // Цвет текста
+    textAlign: 'center',
+    padding: 5,
+  },
+  square1: {
+    width: 175,
+    aspectRatio: 1, // Соотношение сторон 1:1
+    borderRadius: 15,
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 5,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 4},
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
+    elevation: 5,
+    backgroundColor: '#5b5959',
+  },
+  textStyle1: {
+    fontSize: 14,
+    color: '#FFF', // Цвет текста
+    textAlign: 'center',
+    padding: 5,
+  },
+  square2: {
+    width: 175,
+    aspectRatio: 1, // Соотношение сторон 1:1
+    borderRadius: 15,
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 5,
+  },
+  textStyle2: {
+    fontSize: 14,
+    color: '#FFF', // Цвет текста
+    textAlign: 'left',
+    padding: 5,
+  },
+  containerNew3: {
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    width: '100%',
+  },
+  square3: {
+
+  },
+  textStyle3: {
+    fontSize: 14,
+    color: '#FFF', // Цвет текста
+    textAlign: 'left',
+    padding: 5,
   },
 });

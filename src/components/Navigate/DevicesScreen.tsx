@@ -1,12 +1,32 @@
 import React from 'react';
-import {Button, StyleSheet, Text, View} from 'react-native';
+import {
+  Button,
+  Linking,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
 export function DevicesScreen({navigation}: {navigation: any}) {
+  const handlePress = async url => {
+    const supported = await Linking.canOpenURL(url);
+
+    if (supported) {
+      await Linking.openURL(url);
+    } else {
+      console.log(`Don't know how to open this URL: ${url}`);
+    }
+  };
   return (
     <View style={styles.containerApp}>
-      <Text style={styles.text}>Details Screen1</Text>
+      <TouchableOpacity
+        onPress={() => handlePress('https://oko.pro.lukoil.com/')}>
+        <Text style={{color: 'white', fontSize: 25}}>NONONONO</Text>
+      </TouchableOpacity>
+      {/*  <Text style={styles.text}>Details Screen1</Text>
       <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
-      <Button title="Go back" onPress={() => navigation.goBack()} />
+      <Button title="Go back" onPress={() => navigation.goBack()} />*/}
     </View>
   );
 }
