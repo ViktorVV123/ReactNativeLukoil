@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, TextInput, StyleSheet} from 'react-native';
 
+
 export const TextInputTab = () => {
   return (
     <View style={styles.container}>

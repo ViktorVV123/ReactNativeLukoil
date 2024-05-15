@@ -63,13 +63,19 @@ export const Calendars = ({cases}: {cases: any}) => {
     let markedDates = {};
     Object.keys(cases).forEach(date => {
       markedDates[date] = {
-        dots: cases[date].tasks.map(task => ({
-          key: task.text,
-          color: cases[date].dotColor,
-        })),
+        customStyles: {
+          // Настройка внешнего вида бордера
+          container: {
+            borderColor: 'white', // Цвет бордера
+            borderWidth: 2, // Толщина бордера
+            borderRadius: 5, // Радиус скругления бордера
+          },
+          text: {
+            color: 'white', // Цвет текста для дня
+          },
+        },
       };
     });
-
     if (selectedDate) {
       markedDates[selectedDate] = {
         ...markedDates[selectedDate],
@@ -91,7 +97,7 @@ export const Calendars = ({cases}: {cases: any}) => {
           disableMonthChange={true}
           enableSwipeMonths={true}
           markedDates={getMarkedDates()}
-          markingType={'multi-dot'}
+          markingType={'custom'}
           theme={{
             calendarBackground: '#212121',
             textSectionTitleColor: '#ffffff',
@@ -114,7 +120,7 @@ export const Calendars = ({cases}: {cases: any}) => {
                   style={{
                     width: 3,
                     height: '100%',
-                    backgroundColor: '#36a6c0',
+                    backgroundColor: '#9397AC',
                     marginRight: 7,
                   }}
                 />
