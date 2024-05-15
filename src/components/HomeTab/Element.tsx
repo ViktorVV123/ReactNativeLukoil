@@ -42,7 +42,6 @@ export const Element = ({
 const styles = StyleSheet.create({
   containerEl: {
     flexDirection: 'row',
-    backgroundColor: '#13729b',
     justifyContent: 'space-between',
     marginBottom: 20,
     borderRadius: 7,
