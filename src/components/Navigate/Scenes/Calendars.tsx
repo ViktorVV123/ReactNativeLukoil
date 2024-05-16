@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import { View, StyleSheet, Text, Button } from "react-native";
 import {Calendar, LocaleConfig} from 'react-native-calendars';
 
 export const Calendars = ({cases}: {cases: any}) => {
@@ -113,24 +113,26 @@ export const Calendars = ({cases}: {cases: any}) => {
       </View>
       <View style={{width: '50%'}}>
         {selectedDate && cases[selectedDate] && cases[selectedDate].tasks ? (
-          <View style={styles.tasksContainer}>
-            {cases[selectedDate].tasks.map((task: any, index: string) => (
-              <View key={index} style={styles.task}>
-                <View
-                  style={{
-                    width: 3,
-                    height: '100%',
-                    backgroundColor: '#9397AC',
-                    marginRight: 7,
-                  }}
-                />
-                <View>
-                  <Text style={styles.taskText}>{task.text}</Text>
-                  <Text style={styles.taskTime}>{task.time}</Text>
-                  <Text style={styles.taskCategory}>{task.category}</Text>
+          <View>
+            {cases[selectedDate].tasks[0].text.map(
+              (task: any, index: string) => (
+                <View key={index} style={styles.tasksContainer}>
+                  <View
+                    style={{
+                      width: 3,
+                      height: '100%',
+                      backgroundColor: '#9397AC',
+                      marginRight: 10,
+                    }}
+                  />
+                  <View style={{marginBottom: 10}}>
+                    <Text style={styles.taskText}>{task.test}</Text>
+                    <Text style={styles.taskTime}>{task.time}</Text>
+                    <Text style={styles.taskCategory}>{task.category}</Text>
+                  </View>
                 </View>
-              </View>
-            ))}
+              ),
+            )}
           </View>
         ) : (
           <View style={styles.tasksContainer}>
@@ -156,6 +158,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     width: '95%',
     marginLeft: '5%',
+    flexDirection: 'row',
   },
   tasksTitle: {
     fontSize: 16,
@@ -189,4 +192,9 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: '#bbbbbb',
   },
+  btw: {
+    position: "absolute",
+    top: 10,
+    left: 10,
+  }
 });
