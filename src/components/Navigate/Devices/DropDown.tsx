@@ -33,7 +33,7 @@ export const DropDown = () => {
           justifyContent: 'space-between',
           alignItems: 'center',
           alignContent: 'center',
-          marginTop: 20,
+          marginTop: 10,
         }}>
         <TouchableOpacity onPress={isOpenDropDown}>
           <View
@@ -44,18 +44,18 @@ export const DropDown = () => {
               borderRadius: 20,
               padding: 8,
             }}>
-            <Text style={{color: 'white', fontSize: 20}}>{selectItem}</Text>
+            <Text style={{color: 'white', fontSize: 16}}>{selectItem}</Text>
             <ArrowIcon />
           </View>
         </TouchableOpacity>
         {isOpen && (
           <View style={styles.dropdown}>
-            {['БННГ', 'БЭП', 'Гид', 'ЛЛК', 'ПБОТиОС', 'ПИС'].map(
+            {['Все', 'БННГ', 'БЭП', 'Гид', 'ЛЛК', 'ПБОТиОС', 'ПИС'].map(
               (item: string, index: number) => (
                 <TouchableOpacity
                   key={index}
                   onPress={() => handleSelectItem(item)}>
-                  <Text style={{color: 'white', fontSize: 20, lineHeight: 50}}>
+                  <Text style={{color: 'white', fontSize: 16, lineHeight: 50}}>
                     {item}
                   </Text>
                 </TouchableOpacity>
@@ -74,7 +74,6 @@ const styles = StyleSheet.create({
   dropdown: {
     position: 'absolute',
     top: 50,
-    zIndex: 20,
     backgroundColor: '#131313',
     paddingLeft: 10,
     paddingRight: 10,

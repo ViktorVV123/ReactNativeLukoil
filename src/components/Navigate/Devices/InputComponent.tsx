@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, TextInput, View} from 'react-native';
 import {SwitchIcon} from '../../../icons/TableIcon/SwitchIcon.tsx';
-import {SearchIcon} from '../../../icons/assets/SearchIcon.tsx';
+import {SearchIcon} from '../../../icons/TableIcon/SearchIcon.tsx';
 
 export const InputComponent = () => {
   return (
@@ -14,7 +14,7 @@ export const InputComponent = () => {
       <View >
         <SwitchIcon />
       </View>
-      <Text style={{color: 'white', fontSize: 20, verticalAlign: 'middle'}}>
+      <Text style={{color: 'white', fontSize: 16, verticalAlign: 'middle'}}>
         Только избранные 0
       </Text>
       <View
@@ -40,14 +40,16 @@ export const InputComponent = () => {
 };
 const styles = StyleSheet.create({
   input: {
+    verticalAlign: 'middle',
     backgroundColor: '#313131',
     borderColor: '#EEEEEE',
-    width: 250,
+    width: 230,
     borderRadius: 25,
-    height: 40,
+    height: 35,
     color: 'white',
-    fontSize: 18,
+    fontSize: 14,
     paddingLeft: 20,
     alignItems: 'center',
+
   },
 });

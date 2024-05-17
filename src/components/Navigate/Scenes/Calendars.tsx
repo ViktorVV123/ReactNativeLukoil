@@ -91,7 +91,7 @@ export const Calendars = ({cases}: {cases: any}) => {
     <View style={styles.container}>
       <View style={{width: '45%'}}>
         <Calendar
-          style={{marginLeft: 30, padding: 20}}
+          style={{marginLeft: 30, padding: 20, borderRadius: 10}}
           current={new Date().toISOString().split('T')[0]}
           onDayPress={onDayPress}
           disableMonthChange={true}
