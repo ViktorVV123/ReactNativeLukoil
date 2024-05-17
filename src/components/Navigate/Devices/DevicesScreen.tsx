@@ -1,0 +1,51 @@
+import React from 'react';
+import {StyleSheet, Text, View} from 'react-native';
+import {DropDown} from './DropDown.tsx';
+
+export function DevicesScreen() {
+  return (
+    <View style={styles.containerApp}>
+      <View style={styles.containerText}>
+        <View>
+          <Text style={styles.textH1}>Дэшборды</Text>
+          <Text style={styles.text}>Опубликованные дэшборды: 20 </Text>
+        </View>
+        <View>
+          <DropDown />
+        </View>
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  containerApp: {
+    flex: 1,
+    backgroundColor: '#2E2E2E',
+    padding: 20,
+  },
+  containerText: {
+    padding: 15,
+  },
+  textH1: {
+    color: 'white',
+    fontSize: 27,
+  },
+  text: {
+    color: 'white',
+    fontSize: 18,
+    padding: 5,
+  },
+  input: {
+    backgroundColor: '#313131',
+    borderColor: '#EEEEEE',
+    borderWidth: 1,
+    width: 300,
+    borderRadius: 25,
+    height: 40,
+    color: 'white',
+    fontSize: 18,
+    marginLeft: 20,
+    paddingLeft: 20,
+  },
+});

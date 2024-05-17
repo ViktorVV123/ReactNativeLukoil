@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
-export const NewsComponent = ({news, color}: {news: string; color: string}) => {
+export const NewsComponent = ({news, color,newsTaskTwo}: {news: string; color: string}) => {
   return (
     <View style={styles.cardStyle}>
       <Text numberOfLines={3} ellipsizeMode={'tail'} style={styles.text}>

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { View, StyleSheet, Text, Button } from "react-native";
+import {View, StyleSheet, Text, Button} from 'react-native';
 import {Calendar, LocaleConfig} from 'react-native-calendars';
 
 export const Calendars = ({cases}: {cases: any}) => {
@@ -193,8 +193,8 @@ const styles = StyleSheet.create({
     color: '#bbbbbb',
   },
   btw: {
-    position: "absolute",
+    position: 'absolute',
     top: 10,
     left: 10,
-  }
+  },
 });

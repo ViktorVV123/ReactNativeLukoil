@@ -6,7 +6,7 @@ import {HomeIcon} from '../../icons/TabBarIcon/HomeIcon.tsx';
 import {ScenesIcon} from '../../icons/TabBarIcon/ScenesIcon.tsx';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {HomeTab} from '../HomeTab/HomeTab.tsx';
-import {DevicesScreen} from '../Navigate/DevicesScreen.tsx';
+import {DevicesScreen} from '../Navigate/Devices/DevicesScreen.tsx';
 import {ScenesNavigate} from '../Navigate/Scenes/ScenesNavigate.tsx';
 import {EstatesNavigate} from '../Navigate/EstatesNavigate.tsx';
 import {CloudIcon} from '../../icons/HeaderIcon/CloudIcon.tsx';
