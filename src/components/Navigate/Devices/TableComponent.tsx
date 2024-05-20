@@ -4,17 +4,17 @@ import {VectorIcon} from '../../../icons/TableIcon/VectorIcon.tsx';
 import {StarIcon} from '../../../icons/TableIcon/StarIcon.tsx';
 import {ListIcon} from '../../../icons/TableIcon/ListIcon.tsx';
 
-export const TableComponent = ({title, subTitle, text}) => {
+export const TableComponent = ({
+  title,
+  subTitle,
+  text,
+}: {
+  title: string;
+  subTitle: string;
+  text: string;
+}) => {
   return (
     <View style={styles.container}>
-      {/*    <View style={styles.headerRow}>
-        <View style={styles.headerCell}>
-          <Text style={styles.headerText}>Опубликованные дэшборды</Text>
-        </View>
-        <View style={styles.headerCell}>
-          <Text style={styles.headerText}>Описание</Text>
-        </View>
-      </View>*/}
       <View style={styles.row}>
         <View style={styles.cellLeft}>
           <VectorIcon />
