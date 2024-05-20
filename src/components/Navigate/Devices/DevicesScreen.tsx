@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {DropDown} from './DropDown.tsx';
 import {TableComponent} from './TableComponent.tsx';
+import {PageScore} from './PageScore.tsx';
 
 export function DevicesScreen() {
   return (
@@ -28,6 +29,7 @@ export function DevicesScreen() {
           <TableComponent />
         </View>
       </View>
+      <PageScore />
     </View>
   );
 }

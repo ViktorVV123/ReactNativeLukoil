@@ -54,6 +54,7 @@ export const TableComponent = () => {
             <VectorIcon />
             <View style={styles.line} />
             <StarIcon />
+            <View style={styles.line} />
             <View style={styles.textContainer}>
               <Text style={styles.titleText}>{item.title}</Text>
               <Text style={styles.subTitleText}>{item.subTitle}</Text>
@@ -61,6 +62,7 @@ export const TableComponent = () => {
           </View>
           <View style={styles.cellRight}>
             <Text style={styles.descriptionText}>{item.text}</Text>
+            <View style={styles.line} />
             <View style={styles.iconContainer}>
               <ListIcon />
             </View>
@@ -73,14 +75,14 @@ export const TableComponent = () => {
 
 const styles = StyleSheet.create({
   container: {
-    borderColor: 'white',
+    borderColor: 'black',
     borderWidth: 1,
     borderRadius: 15,
-    overflow: 'hidden', // Ensures rounded corners are not clipped
+    overflow: 'hidden',
   },
   headerRow: {
     flexDirection: 'row',
-    backgroundColor: 'black',
+    backgroundColor: '#1F1F1F',
     justifyContent: 'space-around',
     borderTopLeftRadius: 15,
     borderTopRightRadius: 15,
@@ -89,7 +91,8 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
     borderRightWidth: 1,
-    borderRightColor: 'white',
+    borderRightColor: 'black',
+    alignItems: 'flex-start',
   },
   headerText: {
     color: 'white',
@@ -99,7 +102,7 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     borderBottomWidth: 1,
-    borderBottomColor: 'white',
+    borderBottomColor: 'black',
   },
   lastRow: {
     borderBottomLeftRadius: 15,
@@ -109,9 +112,9 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    marginLeft: 20,
+    padding: 10,
     borderRightWidth: 1,
-    borderRightColor: 'white',
+    borderRightColor: 'black',
   },
   cellRight: {
     flex: 1,
@@ -126,93 +129,98 @@ const styles = StyleSheet.create({
   },
   titleText: {
     color: 'white',
-    fontSize: 18,
+    fontSize: 16,
   },
   subTitleText: {
+    marginTop: 10,
     color: 'white',
+    backgroundColor: '#424242',
+    width: 50,
+    textAlign: 'center',
+    borderRadius: 10,
+    padding: 3,
   },
   descriptionText: {
     color: 'white',
     flex: 1,
-    fontSize: 18,
+    fontSize: 16,
+    padding: 10,
   },
   iconContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    borderLeftWidth: 1,
-    borderRightColor: 'white',
+    padding: 5,
   },
   line: {
-    height: '100%',
+    height: '120%',
     width: 1,
-    backgroundColor: 'white',
+    backgroundColor: 'black',
     marginHorizontal: 10,
   },
-
   /*  headerRow: {
-  flexDirection: 'row',
-  backgroundColor: '#1F1F1F',
-  borderTopLeftRadius: 15,
-  borderTopRightRadius: 15,
-  borderBottomWidth: 1,
-  borderBottomColor: 'black',
+flexDirection: 'row',
+backgroundColor: '#1F1F1F',
+borderTopLeftRadius: 15,
+borderTopRightRadius: 15,
+borderBottomWidth: 1,
+borderBottomColor: 'black',
 },
 headerCell: {
-  flex: 1,
-  justifyContent: 'center',
-  alignItems: 'center',
-  paddingVertical: 5,
+flex: 1,
+justifyContent: 'center',
+alignItems: 'center',
+paddingVertical: 5,
 },
 headerText: {
-  color: 'white',
-  fontSize: 18,
+color: 'white',
+fontSize: 18,
 },
 row: {
-  flexDirection: 'row',
-  borderBottomWidth: 1,
-  borderBottomColor: 'black',
+flexDirection: 'row',
+borderBottomWidth: 1,
+borderBottomColor: 'black',
 },
 lastRow: {
-  /!*    borderBottomLeftRadius: 15,
-  borderBottomRightRadius: 15,*!/
+/!*    borderBottomLeftRadius: 15,
+borderBottomRightRadius: 15,*!/
 },
 cell: {
-  flex: 1,
-  padding: 10,
-  borderRightWidth: 1,
-  borderRightColor: 'black',
+flex: 1,
+padding: 10,
+borderRightWidth: 1,
+borderRightColor: 'black',
 },
 cellLeft: {
-  flexDirection: 'row',
-  alignItems: 'center',
+flexDirection: 'row',
+alignItems: 'center',
 },
 cellRight: {
-  justifyContent: 'center',
+justifyContent: 'center',
 },
 textContainer: {
-  marginLeft: 10,
+marginLeft: 10,
 },
 titleText: {
-  color: 'white',
-  fontSize: 16,
+color: 'white',
+fontSize: 16,
 },
 subTitleText: {
-  color: 'white',
+color: 'white',
 },
 descriptionText: {
-  color: 'white',
-  fontSize: 16,
+color: 'white',
+fontSize: 16,
 },
 urlText: {
-  color: 'white',
-  fontSize: 16,
+color: 'white',
+fontSize: 16,
 },
 line: {
-  height: '100%',
-  width: 1,
-  backgroundColor: 'black',
-  marginHorizontal: 10,
-  borderRightWidth: 1,
-  borderColor: 'black'
+height: '100%',
+width: 1,
+backgroundColor: 'black',
+marginHorizontal: 10,
+borderRightWidth: 1,
+borderColor: 'black'
 },*/
 });
