@@ -13,7 +13,7 @@ export function DevicesScreen() {
             <View
               style={{
                 backgroundColor: '#EF3248',
-                width: 280,
+                width: 250,
                 height: 3,
                 marginTop: 10,
               }}
@@ -24,7 +24,7 @@ export function DevicesScreen() {
         <View style={{zIndex: 1}}>
           <DropDown />
         </View>
-        <View>
+        <View style={{marginTop: 15}}>
           <TableComponent />
         </View>
       </View>
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
   },
   text: {
-    width: 282,
+    width: 250,
     color: 'white',
     fontSize: 16,
     padding: 5,

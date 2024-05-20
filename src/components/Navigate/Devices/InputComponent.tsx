@@ -11,7 +11,7 @@ export const InputComponent = () => {
         justifyContent: 'space-between',
         alignItems: 'center',
       }}>
-      <View >
+      <View>
         <SwitchIcon />
       </View>
       <Text style={{color: 'white', fontSize: 16, verticalAlign: 'middle'}}>
@@ -50,6 +50,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     paddingLeft: 20,
     alignItems: 'center',
-
+    textAlignVertical: 'bottom',
   },
 });
