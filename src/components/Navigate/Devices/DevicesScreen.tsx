@@ -5,6 +5,33 @@ import {TableComponent} from './TableComponent.tsx';
 import {PageScore} from './PageScore.tsx';
 
 export function DevicesScreen() {
+  const table = [
+    {
+      id: 1,
+      title: 'Реализация нефти ПАО ЛУКОЙЛ',
+      subTitle: 'БЭП',
+      text: 'Дэшборд предоставляет информацию о реализации нефти ПАО ЛУКОЙЛ и распределении НПЗ Компании, Рынок РФ, Экспорт через ПАО Транснефть, Экспорт минуя Транснефть',
+    },
+    {
+      id: 2,
+      title: 'Проект плана загрузки НПЗ РФ',
+      subTitle: 'БЭП',
+      text: 'Дэшборд предоставляет информацию о плане загрузки НПЗ РФ с учетом остатков на начало месяца и отгрузки',
+    },
+    {
+      id: 3,
+      title:
+        'Распределение и удельная эффективность масляной продукции (ЛЛК, LITASCO и ЛУКОЙЛ)',
+      subTitle: 'ЛЛК',
+      text: 'Дэшборд предоставляет информацию о распределении масляной продукции для ЛЛК/ЛИТАСКО/ЛУКОЙЛ',
+    },
+    {
+      id: 4,
+      title: 'Общие и административные расходы',
+      subTitle: 'БЭП',
+      text: 'Дэшборд предоставляет информацию о динамике общих и административных расходов ПАО',
+    },
+  ];
   return (
     <View style={styles.containerApp}>
       <View style={styles.containerText}>
@@ -26,7 +53,22 @@ export function DevicesScreen() {
           <DropDown />
         </View>
         <View style={{marginTop: 15}}>
-          <TableComponent />
+          <View style={styles.headerRow}>
+            <View style={styles.headerCell}>
+              <Text style={styles.headerText}>Опубликованные дэшборды</Text>
+            </View>
+            <View style={styles.headerCell}>
+              <Text style={styles.headerText}>Описание</Text>
+            </View>
+          </View>
+          {table.map(el => (
+            <TableComponent
+              key={el.id}
+              text={el.text}
+              title={el.title}
+              subTitle={el.subTitle}
+            />
+          ))}
         </View>
       </View>
       <PageScore />
@@ -65,5 +107,24 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginLeft: 20,
     paddingLeft: 20,
+  },
+  headerRow: {
+    flexDirection: 'row',
+    backgroundColor: '#1F1F1F',
+    justifyContent: 'space-around',
+    borderTopLeftRadius: 15,
+    borderTopRightRadius: 15,
+  },
+  headerCell: {
+    flex: 1,
+    padding: 10,
+    borderRightWidth: 1,
+    borderRightColor: 'black',
+    alignItems: 'flex-start',
+  },
+  headerText: {
+    color: 'white',
+    textAlign: 'center',
+    fontSize: 20,
   },
 });

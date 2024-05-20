@@ -4,71 +4,36 @@ import {VectorIcon} from '../../../icons/TableIcon/VectorIcon.tsx';
 import {StarIcon} from '../../../icons/TableIcon/StarIcon.tsx';
 import {ListIcon} from '../../../icons/TableIcon/ListIcon.tsx';
 
-export const TableComponent = () => {
-  const table = [
-    {
-      id: 1,
-      title: 'Реализация нефти ПАО ЛУКОЙЛ',
-      subTitle: 'БЭП',
-      text: 'Дэшборд предоставляет информацию о реализации нефти ПАО ЛУКОЙЛ и распределении НПЗ Компании, Рынок РФ, Экспорт через ПАО Транснефть, Экспорт минуя Транснефть',
-    },
-    {
-      id: 2,
-      title: 'Проект плана загрузки НПЗ РФ',
-      subTitle: 'БЭП',
-      text: 'Дэшборд предоставляет информацию о плане загрузки НПЗ РФ с учетом остатков на начало месяца и отгрузки',
-    },
-    {
-      id: 3,
-      title:
-        'Распределение и удельная эффективность масляной продукции (ЛЛК, LITASCO и ЛУКОЙЛ)',
-      subTitle: 'ЛЛК',
-      text: 'Дэшборд предоставляет информацию о распределении масляной продукции для ЛЛК/ЛИТАСКО/ЛУКОЙЛ',
-    },
-    {
-      id: 4,
-      title: 'Общие и административные расходы',
-      subTitle: 'БЭП',
-      text: 'Дэшборд предоставляет информацию о динамике общих и административных расходов ПАО',
-    },
-  ];
-
+export const TableComponent = ({title, subTitle, text}) => {
   return (
     <View style={styles.container}>
-      <View style={styles.headerRow}>
+      {/*    <View style={styles.headerRow}>
         <View style={styles.headerCell}>
           <Text style={styles.headerText}>Опубликованные дэшборды</Text>
         </View>
         <View style={styles.headerCell}>
           <Text style={styles.headerText}>Описание</Text>
         </View>
-      </View>
-      {table.map((item, index) => (
-        <View
-          key={item.id}
-          style={[
-            styles.row,
-            index === table.length - 1 && styles.lastRow, // Apply bottom border radius to the last row
-          ]}>
-          <View style={styles.cellLeft}>
-            <VectorIcon />
-            <View style={styles.line} />
-            <StarIcon />
-            <View style={styles.line} />
-            <View style={styles.textContainer}>
-              <Text style={styles.titleText}>{item.title}</Text>
-              <Text style={styles.subTitleText}>{item.subTitle}</Text>
-            </View>
-          </View>
-          <View style={styles.cellRight}>
-            <Text style={styles.descriptionText}>{item.text}</Text>
-            <View style={styles.line} />
-            <View style={styles.iconContainer}>
-              <ListIcon />
-            </View>
+      </View>*/}
+      <View style={styles.row}>
+        <View style={styles.cellLeft}>
+          <VectorIcon />
+          <View style={styles.line} />
+          <StarIcon />
+          <View style={styles.line} />
+          <View style={styles.textContainer}>
+            <Text style={styles.titleText}>{title}</Text>
+            <Text style={styles.subTitleText}>{subTitle}</Text>
           </View>
         </View>
-      ))}
+        <View style={styles.cellRight}>
+          <Text style={styles.descriptionText}>{text}</Text>
+          <View style={styles.line} />
+          <View style={styles.iconContainer}>
+            <ListIcon />
+          </View>
+        </View>
+      </View>
     </View>
   );
 };
@@ -77,15 +42,12 @@ const styles = StyleSheet.create({
   container: {
     borderColor: 'black',
     borderWidth: 1,
-    borderRadius: 15,
     overflow: 'hidden',
   },
   headerRow: {
     flexDirection: 'row',
     backgroundColor: '#1F1F1F',
     justifyContent: 'space-around',
-    borderTopLeftRadius: 15,
-    borderTopRightRadius: 15,
   },
   headerCell: {
     flex: 1,
@@ -152,7 +114,7 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   line: {
-    height: '120%',
+    height: '130%',
     width: 1,
     backgroundColor: 'black',
     marginHorizontal: 10,
