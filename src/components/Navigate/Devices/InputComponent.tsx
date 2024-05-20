@@ -3,7 +3,13 @@ import {StyleSheet, Text, TextInput, View} from 'react-native';
 import {SwitchIcon} from '../../../icons/TableIcon/SwitchIcon.tsx';
 import {SearchIcon} from '../../../icons/TableIcon/SearchIcon.tsx';
 
-export const InputComponent = () => {
+export const InputComponent = ({
+  setSearch,
+  search,
+}: {
+  setSearch: any;
+  search: any;
+}) => {
   return (
     <View
       style={{
@@ -29,9 +35,11 @@ export const InputComponent = () => {
           marginLeft: 15,
         }}>
         <TextInput
+          value={search}
           placeholder="Поиск"
           style={styles.input}
           placeholderTextColor="#EEEEEE"
+          onChangeText={setSearch}
         />
         <SearchIcon />
       </View>

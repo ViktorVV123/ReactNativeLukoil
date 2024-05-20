@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {
   StyleSheet,
   Text,
-  TouchableNativeFeedback,
   TouchableOpacity,
   TouchableWithoutFeedback,
   View,
@@ -63,9 +62,6 @@ export const DropDown = () => {
             )}
           </View>
         )}
-        <View>
-          <InputComponent />
-        </View>
       </View>
     </TouchableWithoutFeedback>
   );

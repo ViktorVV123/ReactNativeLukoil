@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {DropDown} from './DropDown.tsx';
 import {TableComponent} from './TableComponent.tsx';
 import {PageScore} from './PageScore.tsx';
+import {InputComponent} from './InputComponent.tsx';
 
 export function DevicesScreen() {
+  const [search, setSearch] = useState('');
   const table = [
     {
       id: 1,
@@ -32,6 +34,14 @@ export function DevicesScreen() {
       text: 'Дэшборд предоставляет информацию о динамике общих и административных расходов ПАО',
     },
   ];
+  const filterTable =
+    /*table.filter(item =>
+    item.title.toLowerCase().includes(search.toLowerCase()),*/
+    table.filter(item =>
+      item.title.toLowerCase().includes(search.toLowerCase()),
+    );
+
+  /* const searchTableDash = internalData.filter(el => el.name.toLowerCase().includes(searchTerm.toLowerCase())).filter(el => selection === 'Все' ? el : el.business_block === selection)*/
   return (
     <View style={styles.containerApp}>
       <View style={styles.containerText}>
@@ -49,8 +59,14 @@ export function DevicesScreen() {
             <Text style={styles.text}>Опубликованные дэшборды: 20 </Text>
           </View>
         </View>
-        <View style={{zIndex: 1}}>
+        <View
+          style={{
+            zIndex: 1,
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+          }}>
           <DropDown />
+          <InputComponent setSearch={setSearch} search={search} />
         </View>
         <View style={{marginTop: 15}}>
           <View style={styles.headerRow}>
@@ -61,14 +77,16 @@ export function DevicesScreen() {
               <Text style={styles.headerText}>Описание</Text>
             </View>
           </View>
-          {table.map(el => (
-            <TableComponent
-              key={el.id}
-              text={el.text}
-              title={el.title}
-              subTitle={el.subTitle}
-            />
-          ))}
+          <View>
+            {filterTable.map(el => (
+              <TableComponent
+                key={el.id}
+                text={el.text}
+                title={el.title}
+                subTitle={el.subTitle}
+              />
+            ))}
+          </View>
         </View>
       </View>
       <PageScore />
@@ -121,6 +139,7 @@ const styles = StyleSheet.create({
     borderRightWidth: 1,
     borderRightColor: 'black',
     alignItems: 'flex-start',
+    borderTopRightRadius: 15,
   },
   headerText: {
     color: 'white',
