@@ -1,5 +1,11 @@
 import React, {useState} from 'react';
-import {View, StyleSheet, TouchableOpacity, Animated} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  Animated,
+  TouchableWithoutFeedback,
+} from 'react-native';
 import {PlusIcon} from '../../../icons/AnimatedIcon/PlusIcon.tsx';
 import {CloudIcon} from '../../../icons/HeaderIcon/CloudIcon.tsx';
 import {ChartIcon} from '../../../icons/HeaderIcon/ChartIcon.tsx';
@@ -50,36 +56,43 @@ export const SwapButton = () => {
       useNativeDriver: false,
     }).start();
   };
-
+  const toggleIcons = () => {
+    if (!open) {
+      openIn();
+    } else {
+      closeIn();
+    }
+  };
   return (
-    <View style={styles.container}>
-      <Animated.View style={[styles.circleM, {top: icon_1}]}>
-        <TouchableOpacity>
-          <CloudIcon />
+    <TouchableWithoutFeedback onPress={closeIn}>
+      <View style={styles.container}>
+        <Animated.View style={[styles.circleM, {top: icon_1}]}>
+          <TouchableOpacity>
+            <CloudIcon />
+          </TouchableOpacity>
+        </Animated.View>
+        <Animated.View style={[styles.circleM, {top: icon_2, right: icon_2}]}>
+          <TouchableOpacity>
+            <ChartIcon />
+          </TouchableOpacity>
+        </Animated.View>
+        <Animated.View style={[styles.circleM, {top: icon_3, right: icon_3}]}>
+          <TouchableOpacity>
+            <HomeIcon fill={'white'} />
+          </TouchableOpacity>
+        </Animated.View>
+        <TouchableOpacity onPress={toggleIcons} style={styles.circle}>
+          <PlusIcon />
         </TouchableOpacity>
-      </Animated.View>
-      <Animated.View style={[styles.circleM, {top: icon_2, right: icon_2}]}>
-        <TouchableOpacity>
-          <ChartIcon />
-        </TouchableOpacity>
-      </Animated.View>
-      <Animated.View style={[styles.circleM, {top: icon_3, right: icon_3}]}>
-        <TouchableOpacity>
-          <HomeIcon fill={'white'} />
-        </TouchableOpacity>
-      </Animated.View>
-      <TouchableOpacity
-        onPress={() => (!open ? openIn() : closeIn())}
-        style={styles.circle}>
-        <PlusIcon />
-      </TouchableOpacity>
-    </View>
+      </View>
+    </TouchableWithoutFeedback>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    zIndex: 10,
   },
   circle: {
     borderRadius: 30,
