@@ -8,7 +8,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {HomeTab} from '../HomeTab/HomeTab.tsx';
 import {DevicesScreen} from '../Navigate/Devices/DevicesScreen.tsx';
 import {ScenesNavigate} from '../Navigate/Scenes/ScenesNavigate.tsx';
-import {EstatesNavigate} from '../Navigate/EstatesNavigate.tsx';
+import {EstatesNavigate} from '../Navigate/Estates/EstatesNavigate.tsx';
 import {CloudIcon} from '../../icons/HeaderIcon/CloudIcon.tsx';
 import {ChartIcon} from '../../icons/HeaderIcon/ChartIcon.tsx';
 import {MenuIcon} from '../../icons/HeaderIcon/MenuIcon.tsx';
@@ -52,7 +52,7 @@ export const TabBar = () => {
         },
       }}>
       <Tab.Screen
-        name="Scenes"
+        name="Home"
         component={ScenesNavigate}
         options={{
           tabBarIcon: ({color}: {color: string}) => <HomeIcon fill={color} />,
@@ -71,7 +71,7 @@ export const TabBar = () => {
         }}
       />
       <Tab.Screen
-        name="Home"
+        name="Scenes"
         component={HomeTab}
         options={{
           tabBarIcon: ({color}) => <ScenesIcon fill={color} />,

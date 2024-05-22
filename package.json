@@ -10,6 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@react-native-vector-icons/ant-design": "^4.4.2-alpha.9",
     "@react-navigation/bottom-tabs": "^6.5.20",
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/native-stack": "^6.9.26",
@@ -26,6 +27,7 @@
     "react-native-svg-animations": "^1.0.0",
     "react-native-table-component": "^1.2.2",
     "react-native-text-ticker": "^1.14.0",
+    "react-native-vector-icons": "^10.1.0",
     "react-native-webview": "^13.10.2"
   },
   "devDependencies": {
@@ -38,6 +40,7 @@
     "@react-native/typescript-config": "0.74.81",
     "@types/react": "^18.2.6",
     "@types/react-native-table-component": "^1.2.8",
+    "@types/react-native-vector-icons": "^6.4.18",
     "@types/react-test-renderer": "^18.0.0",
     "babel-jest": "^29.6.3",
     "eslint": "^8.19.0",

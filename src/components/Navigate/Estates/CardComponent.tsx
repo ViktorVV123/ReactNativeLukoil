@@ -2,7 +2,7 @@ import React from 'react';
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
-export function EstatesNavigate() {
+export const CardComponent = () => {
   const news = [
     {
       new: 'ЛУКОЙЛ и Ямало-Ненецкий автономный округ подписали дополнительное соглашение о сотрудничестве',
@@ -16,63 +16,44 @@ export function EstatesNavigate() {
     {
       new: 'Команда ЛУКОЙЛ-Западной Сибири стала победителем соревнований по баскетболу трудовых коллективов Когалыма',
     },
-    {
-      new: 'В Усинске при содействии ЛУКОЙЛа прошёл межрегиональный турнир по хоккею',
-    },
   ];
   return (
-    <View style={styles.containerApp}>
-      <ScrollView>
-        <View style={styles.containerNew}>
-          {news.map((item, index) => (
-            <LinearGradient
-              key={index}
-              colors={['#444', '#222']}
-              style={styles.square}>
-              <Text style={styles.textStyle}>{item.new}</Text>
-            </LinearGradient>
-          ))}
-        </View>
-        <View style={styles.containerNew}>
-          {news.map((item, index) => (
-            <View key={index} style={styles.square1}>
-              <Text style={styles.textStyle1}>{item.new}</Text>
-            </View>
-          ))}
-        </View>
-        <View />
-        <View style={styles.containerNew}>
-          {news.map((item, index) => (
-            <View style={styles.square2}>
-              <Text key={index} style={styles.textStyle2}>
-                {item.new}
-              </Text>
-            </View>
-          ))}
-        </View>
-        <View style={styles.containerNew3}>
-          {news.map((item, index) => (
-            <View style={styles.square3}>
-              <Text key={index} style={styles.textStyle3}>
-                {item.new}
-              </Text>
-            </View>
-          ))}
-        </View>
-        <View />
-      </ScrollView>
-    </View>
+    <ScrollView>
+      <View style={styles.containerNew}>
+        {news.map((item, index) => (
+          <LinearGradient
+            key={index}
+            colors={['#444', '#222']}
+            style={styles.square}>
+            <Text style={styles.textStyle}>{item.new}</Text>
+          </LinearGradient>
+        ))}
+      </View>
+      <View style={styles.containerNew}>
+        {news.map((item, index) => (
+          <View key={index} style={styles.square1}>
+            <Text style={styles.textStyle1}>{item.new}</Text>
+          </View>
+        ))}
+      </View>
+      <View style={styles.containerNew}>
+        {news.map((item, index) => (
+          <View key={index} style={styles.square1}>
+            <Text style={styles.textStyle1}>{item.new}</Text>
+          </View>
+        ))}
+      </View>
+      <View style={styles.containerNew}>
+        {news.map((item, index) => (
+          <View key={index} style={styles.square1}>
+            <Text style={styles.textStyle1}>{item.new}</Text>
+          </View>
+        ))}
+      </View>
+    </ScrollView>
   );
-}
-
+};
 const styles = StyleSheet.create({
-  containerApp: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start',
-    backgroundColor: '#2e2e2e', // Темный фон
-    padding: 20,
-  },
   containerNew: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -81,7 +62,6 @@ const styles = StyleSheet.create({
   square: {
     width: 150,
     height: 165,
-    /*aspectRatio: 1, // Соотношение сторон 1:1*/
     borderRadius: 15,
     justifyContent: 'center',
     alignItems: 'center',
@@ -137,9 +117,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     width: '100%',
   },
-  square3: {
-
-  },
+  square3: {},
   textStyle3: {
     fontSize: 14,
     color: '#FFF', // Цвет текста

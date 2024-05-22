@@ -3,6 +3,7 @@ import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import {EventsComponent} from './EventsComponent.tsx';
 import {NewsComponent} from './NewsComponent.tsx';
 import {Calendars} from './Calendars.tsx';
+import {SwapButton} from '../Estates/SwapButton.tsx';
 
 export function ScenesNavigate() {
   const cases = {
@@ -164,6 +165,7 @@ export function ScenesNavigate() {
   ];
   return (
     <View style={styles.containerApp}>
+      <SwapButton />
       <ScrollView>
         <View>
           <Calendars cases={cases} />
