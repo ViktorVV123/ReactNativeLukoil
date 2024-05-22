@@ -12,6 +12,7 @@ import {EstatesNavigate} from '../Navigate/Estates/EstatesNavigate.tsx';
 import {CloudIcon} from '../../icons/HeaderIcon/CloudIcon.tsx';
 import {ChartIcon} from '../../icons/HeaderIcon/ChartIcon.tsx';
 import {MenuIcon} from '../../icons/HeaderIcon/MenuIcon.tsx';
+import {Carusel} from '../Navigate/Carusel/Carusel.tsx';
 
 const defaultHeaderStyles = {
   headerStyle: {backgroundColor: '#000000'},
@@ -81,6 +82,16 @@ export const TabBar = () => {
       <Tab.Screen
         name="Estates"
         component={EstatesNavigate}
+        options={{
+          tabBarIcon: ({color}: {color: string}) => (
+            <EstatesIcon fill={color} />
+          ),
+          ...defaultHeaderStyles,
+        }}
+      />
+      <Tab.Screen
+        name="Carusel"
+        component={Carusel}
         options={{
           tabBarIcon: ({color}: {color: string}) => (
             <EstatesIcon fill={color} />
