@@ -36,7 +36,7 @@ const defaultHeaderStyles = {
 };
 
 export const TabBar = () => {
-  const Tab = createBottomTabNavigator()
+  const Tab = createBottomTabNavigator();
   return (
     <Tab.Navigator
       initialRouteName="Home"
@@ -52,13 +52,14 @@ export const TabBar = () => {
         },
       }}>
       <Tab.Screen
-        name="Home"
-        component={HomeTab}
+        name="Scenes"
+        component={ScenesNavigate}
         options={{
-          tabBarIcon: ({color}) => <HomeIcon fill={color} />,
+          tabBarIcon: ({color}: {color: string}) => <HomeIcon fill={color} />,
           ...defaultHeaderStyles,
         }}
       />
+
       <Tab.Screen
         name="Devices"
         component={DevicesScreen}
@@ -70,16 +71,16 @@ export const TabBar = () => {
         }}
       />
       <Tab.Screen
-        name="Scenes"
-        component={ScenesNavigate}
+        name="Home"
+        component={HomeTab}
         options={{
-          tabBarIcon: ({color}: {color: string}) => <ScenesIcon fill={color} />,
+          tabBarIcon: ({color}) => <ScenesIcon fill={color} />,
           ...defaultHeaderStyles,
         }}
       />
       <Tab.Screen
         name="Estates"
-        component={EstatesNavigate }
+        component={EstatesNavigate}
         options={{
           tabBarIcon: ({color}: {color: string}) => (
             <EstatesIcon fill={color} />

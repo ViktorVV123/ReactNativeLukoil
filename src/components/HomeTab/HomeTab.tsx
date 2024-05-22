@@ -1,8 +1,8 @@
 import {View, ScrollView, StyleSheet, Button} from 'react-native';
 import React, {useState} from 'react';
 import {Element} from './Element.tsx';
-import {useModal} from '../../style/ModalContext.tsx';
-import {ModalComponent} from '../../style/ModalComponent.tsx';
+import {useModal} from '../../Context/ModalContext.tsx';
+import {ModalComponent} from '../../Context/ModalComponent.tsx';
 import {TextInputTab} from './TextInputTab.tsx';
 
 export const HomeTab = () => {

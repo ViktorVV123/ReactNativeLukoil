@@ -1,17 +1,20 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {VectorIcon} from '../../../icons/TableIcon/VectorIcon.tsx';
-import {StarIcon} from '../../../icons/TableIcon/StarIcon.tsx';
+
 import {ListIcon} from '../../../icons/TableIcon/ListIcon.tsx';
+import {StarIcon} from '../../../icons/TableIcon/StarIcon.tsx';
 
 export const TableComponent = ({
   title,
   subTitle,
   text,
+  url,
 }: {
   title: string;
   subTitle: string;
   text: string;
+  url: string;
 }) => {
   return (
     <View style={styles.container}>
@@ -30,7 +33,7 @@ export const TableComponent = ({
           <Text style={styles.descriptionText}>{text}</Text>
           <View style={styles.line} />
           <View style={styles.iconContainer}>
-            <ListIcon />
+            <ListIcon url={url} />
           </View>
         </View>
       </View>
