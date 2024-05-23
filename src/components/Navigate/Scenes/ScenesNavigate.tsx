@@ -1,5 +1,12 @@
-import React from 'react';
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import React, {useRef, useState} from 'react';
+import {
+  FlatList,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {EventsComponent} from './EventsComponent.tsx';
 import {NewsComponent} from './NewsComponent.tsx';
 import {Calendars} from './Calendars.tsx';
@@ -92,47 +99,71 @@ export function ScenesNavigate() {
   const newsTask = [
     {
       news: 'ЛУКОЙЛ и Ямало-Ненецкий автономный округ подписали дополнительное соглашение о сотрудничестве.',
-      color: '#939494',
     },
     {
       news: 'В Астрахани при поддержке ЛУКОЙЛа выпустили книгу о художнике С. Мочалове.',
-      color: '#939494',
     },
     {
       news: 'На Нижегородском НПЗ ЛУКОЙЛа состоялся чемпионат по настольному теннису.',
-      color: '#939494',
     },
     {
       news: 'Команда ЛУКОЙЛ-Западной Сибири стала победителем соревнований по баскетболу трудовых коллективов Когалыма.',
-      color: '#939494',
     },
     {
       news: 'В Усинске при содействии ЛУКОЙЛа прошёл межрегиональный турнир по хоккею.',
-
-      color: '#939494',
     },
   ];
   const newsTaskTwo = [
     {
-      news: 'ЛУКОЙЛ и Ямало-Ненецкий автономный округ подписали дополнительное соглашение о сотрудничестве2.',
-      color: '#939494',
+      news: 'ЛУКОЙЛ и Ямало-Ненецкий автономный округ подписали дополнительное соглашение о сотрудничестве.',
+      newsOne:
+        'В Астрахани при поддержке ЛУКОЙЛа выпустили книгу о художнике С. Мочалове.',
+      newsTwo:
+        'На Нижегородском НПЗ ЛУКОЙЛа состоялся чемпионат по настольному теннису.',
+      newsThree:
+        'Команда ЛУКОЙЛ-Западной Сибири стала победителем соревнований по баскетболу трудовых коллективов Когалыма.',
+      newsFour:
+        'В Усинске при содействии ЛУКОЙЛа прошёл межрегиональный турнир по хоккею.',
     },
     {
-      news: 'В Астрахани при поддержке ЛУКОЙЛа выпустили книгу о художнике С. Мочалове2.',
-      color: '#939494',
+      news: 'Молодые специалисты Нижегородского НПЗ ЛУКОЙЛа провели экологическое мероприятие для детей',
+      newsOne:
+        'В Лангепасе при поддержке ЛУКОЙЛа прошёл первый городской фестиваль «Хоровая дружба»',
+      newsTwo: 'Саратоворгсинтез провёл детский конкурс чтецов',
+      newsThree:
+        'ЛУКОЙЛ Белоруссия признана лучшей организацией по охране труда среди предприятий Минска',
+      newsFour:
+        'На НПЗ ЛУКОЙЛа в Болгарии подписали новый коллективный договор',
     },
     {
-      news: 'На Нижегородском НПЗ ЛУКОЙЛа состоялся чемпионат по настольному теннису2.',
-      color: '#939494',
+      news: 'Молодые специалисты Нижегородского НПЗ ЛУКОЙЛа провели экологическое мероприятие для детей',
+      newsOne:
+        'В Лангепасе при поддержке ЛУКОЙЛа прошёл первый городской фестиваль «Хоровая дружба»',
+      newsTwo: 'Саратоворгсинтез провёл детский конкурс чтецов',
+      newsThree:
+        'ЛУКОЙЛ Белоруссия признана лучшей организацией по охране труда среди предприятий Минска',
+      newsFour:
+        'На НПЗ ЛУКОЙЛа в Болгарии подписали новый коллективный договор',
     },
     {
-      news: 'Команда ЛУКОЙЛ-Западной Сибири стала победителем соревнований по баскетболу трудовых коллективов Когалыма2.',
-      color: '#939494',
+      news: 'Молодые специалисты Нижегородского НПЗ ЛУКОЙЛа провели экологическое мероприятие для детей',
+      newsOne:
+        'В Лангепасе при поддержке ЛУКОЙЛа прошёл первый городской фестиваль «Хоровая дружба»',
+      newsTwo: 'Саратоворгсинтез провёл детский конкурс чтецов',
+      newsThree:
+        'ЛУКОЙЛ Белоруссия признана лучшей организацией по охране труда среди предприятий Минска',
+      newsFour:
+        'На НПЗ ЛУКОЙЛа в Болгарии подписали новый коллективный договор',
     },
     {
-      news: 'В Усинске при содействии ЛУКОЙЛа прошёл межрегиональный турнир по хоккею2.',
-
-      color: '#939494',
+      news: 'Молодые специалисты Нижегородского НПЗ ЛУКОЙЛа провели экологическое мероприятие для детей',
+      newsOne:
+        'В Лангепасе при поддержке ЛУКОЙЛа прошёл первый городской фестиваль «Хоровая дружба»',
+      newsTwo: 'Саратоворгсинтез провёл детский конкурс чтецов',
+      newsThree:
+        'ЛУКОЙЛ Белоруссия признана лучшей организацией по охране труда среди предприятий Минска',
+      newsFour:
+        'На НПЗ ЛУКОЙЛа в Болгарии подписали новый коллективный договор',
     },
   ];
 
@@ -163,6 +194,31 @@ export function ScenesNavigate() {
       date: '14.05.2024',
     },
   ];
+  const [activeIndex, setActiveIndex] = useState(1);
+
+  // Создаем референцию для FlatList
+  const flatListRef = useRef<FlatList>(null);
+
+  // Функция для обновления активного индекса при изменении видимых элементов
+  const onViewRef = useRef(({viewableItems}: any) => {
+    if (viewableItems.length > 0) {
+      setActiveIndex(viewableItems[0].index);
+    }
+  });
+
+  // Конфигурация видимости для определения видимого элемента
+  const viewConfigRef = useRef({viewAreaCoveragePercentThreshold: 50});
+
+  // Функция для рендеринга каждого элемента карусели
+  const renderItem = ({item}) => (
+    <View style={styles.itemContainer}>
+      <Text style={styles.itemText}>{item.news}</Text>
+      <Text style={styles.itemText}>{item.newsOne}</Text>
+      <Text style={styles.itemText}>{item.newsTwo}</Text>
+      <Text style={styles.itemText}>{item.newsThree}</Text>
+      <Text style={styles.itemText}>{item.newsFour}</Text>
+    </View>
+  );
   return (
     <View style={styles.containerApp}>
       <SwapButton />
@@ -175,18 +231,38 @@ export function ScenesNavigate() {
             <View
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
               <Text style={styles.title}>Новости</Text>
+              <View style={styles.paginationContainer}>
+                {newsTask.map((_, index) => (
+                  <TouchableOpacity
+                    key={index}
+                    style={[
+                      styles.dot,
+                      activeIndex === index
+                        ? styles.activeDot
+                        : styles.inactiveDot,
+                    ]}
+                    onPress={() => {
+                      flatListRef.current?.scrollToIndex({index});
+                    }}
+                  />
+                ))}
+              </View>
               <Text style={{color: 'white', fontSize: 18}}>14.05.2024</Text>
             </View>
-            {newsTask.map((item, index) => (
-              <View>
-                <NewsComponent
-                  newsTaskTwo={newsTaskTwo}
-                  key={index}
-                  news={item.news}
-                  color={item.color}
-                />
-              </View>
-            ))}
+            <View />
+            <View style={styles.carouselContainer}>
+              <FlatList
+                data={newsTaskTwo} // Данные для карусели
+                renderItem={renderItem} // Функция рендеринга элемента
+                horizontal // Горизонтальная прокрутка
+                pagingEnabled // Постраничная прокрутка
+                showsHorizontalScrollIndicator={false} // Отключение горизонтального индикатора прокрутки
+                keyExtractor={(item, index) => index.toString()} // Уникальный ключ для каждого элемента
+                onViewableItemsChanged={onViewRef.current} // Обработчик изменения видимых элементов
+                viewabilityConfig={viewConfigRef.current} // Конфигурация видимости
+                ref={flatListRef} // Ссылка на FlatList
+              />
+            </View>
           </View>
           <View style={{width: '40%', padding: 20}}>
             <View
@@ -234,5 +310,46 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 22,
     marginBottom: 15,
+  },
+  carouselContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  itemContainer: {
+    width: 600, // Ширина элемента равна ширине экрана
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    padding: 10,
+  },
+  itemText: {
+    marginTop: 5,
+    fontSize: 18,
+    marginBottom: 25,
+    color: 'white',
+  },
+  paginationContainer: {
+    flexDirection: 'row', // Горизонтальное расположение индикаторов пагинации
+    marginTop: 10,
+  },
+  dot: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    marginHorizontal: 5,
+  },
+  activeDot: {
+    backgroundColor: '#dc1c1c',
+    marginBottom: 25,
+  },
+  inactiveDot: {
+    backgroundColor: '#EEEEEE',
+  },
+  notesContainer: {
+    marginTop: 10,
+  },
+  noteText: {
+    fontSize: 16,
+    color: 'gray',
   },
 });

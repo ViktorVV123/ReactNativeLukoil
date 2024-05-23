@@ -11,16 +11,15 @@ import {
 // Получаем ширину экрана для использования в стиле элементов карусели
 const {width: screenWidth} = Dimensions.get('window');
 
-// Массив данных, содержащий текст и заметки для каждого элемента карусели
-const data = [
-  {text: 'Item 1', note: 'Note 1'},
-  {text: 'Item 2', note: 'Note 2'},
-  {text: 'Item 3', note: 'Note 3'},
-  {text: 'Item 4', note: 'Note 4'},
-  {text: 'Item 5', note: 'Note 5'},
-];
-
-export const Carusel: React.FC = () => {
+export const Carusel = () => {
+  // Массив данных, содержащий текст и заметки для каждого элемента карусели
+  const task = [
+    {text: 'Item 1', note: 'Note 1'},
+    {text: 'Item 2', note: 'Note 2'},
+    {text: 'Item 3', note: 'Note 3'},
+    {text: 'Item 4', note: 'Note 4'},
+    {text: 'Item 5', note: 'Note 5'},
+  ];
   // Используем useState для управления состоянием активного индекса
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -48,7 +47,7 @@ export const Carusel: React.FC = () => {
     <View style={styles.carouselContainer}>
       {/* FlatList для отображения карусели */}
       <FlatList
-        data={data} // Данные для карусели
+        data={task} // Данные для карусели
         renderItem={renderItem} // Функция рендеринга элемента
         horizontal // Горизонтальная прокрутка
         pagingEnabled // Постраничная прокрутка
