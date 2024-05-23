@@ -8,7 +8,6 @@ import {
   View,
 } from 'react-native';
 import {EventsComponent} from './EventsComponent.tsx';
-import {NewsComponent} from './NewsComponent.tsx';
 import {Calendars} from './Calendars.tsx';
 import {SwapButton} from '../Estates/SwapButton.tsx';
 
@@ -115,6 +114,7 @@ export function ScenesNavigate() {
   ];
   const newsTaskTwo = [
     {
+      date: '24.05.2024',
       news: 'ЛУКОЙЛ и Ямало-Ненецкий автономный округ подписали дополнительное соглашение о сотрудничестве.',
       newsOne:
         'В Астрахани при поддержке ЛУКОЙЛа выпустили книгу о художнике С. Мочалове.',
@@ -126,6 +126,7 @@ export function ScenesNavigate() {
         'В Усинске при содействии ЛУКОЙЛа прошёл межрегиональный турнир по хоккею.',
     },
     {
+      date: '17.05.2024',
       news: 'Молодые специалисты Нижегородского НПЗ ЛУКОЙЛа провели экологическое мероприятие для детей',
       newsOne:
         'В Лангепасе при поддержке ЛУКОЙЛа прошёл первый городской фестиваль «Хоровая дружба»',
@@ -136,6 +137,7 @@ export function ScenesNavigate() {
         'На НПЗ ЛУКОЙЛа в Болгарии подписали новый коллективный договор',
     },
     {
+      date: '10.05.2024',
       news: 'Молодые специалисты Нижегородского НПЗ ЛУКОЙЛа провели экологическое мероприятие для детей',
       newsOne:
         'В Лангепасе при поддержке ЛУКОЙЛа прошёл первый городской фестиваль «Хоровая дружба»',
@@ -146,6 +148,7 @@ export function ScenesNavigate() {
         'На НПЗ ЛУКОЙЛа в Болгарии подписали новый коллективный договор',
     },
     {
+      date: '02.05.2024',
       news: 'Молодые специалисты Нижегородского НПЗ ЛУКОЙЛа провели экологическое мероприятие для детей',
       newsOne:
         'В Лангепасе при поддержке ЛУКОЙЛа прошёл первый городской фестиваль «Хоровая дружба»',
@@ -156,6 +159,7 @@ export function ScenesNavigate() {
         'На НПЗ ЛУКОЙЛа в Болгарии подписали новый коллективный договор',
     },
     {
+      date: '18.04.2024',
       news: 'Молодые специалисты Нижегородского НПЗ ЛУКОЙЛа провели экологическое мероприятие для детей',
       newsOne:
         'В Лангепасе при поддержке ЛУКОЙЛа прошёл первый городской фестиваль «Хоровая дружба»',
@@ -210,13 +214,27 @@ export function ScenesNavigate() {
   const viewConfigRef = useRef({viewAreaCoveragePercentThreshold: 50});
 
   // Функция для рендеринга каждого элемента карусели
-  const renderItem = ({item}) => (
+  const renderItem = ({item}: {item: any}) => (
     <View style={styles.itemContainer}>
-      <Text style={styles.itemText}>{item.news}</Text>
-      <Text style={styles.itemText}>{item.newsOne}</Text>
-      <Text style={styles.itemText}>{item.newsTwo}</Text>
-      <Text style={styles.itemText}>{item.newsThree}</Text>
-      <Text style={styles.itemText}>{item.newsFour}</Text>
+      <View style={{justifyContent: 'flex-end'}}>
+        <Text
+          style={{
+            color: 'white',
+            marginBottom: 5,
+            backgroundColor: '#484646',
+            padding: 5,
+            borderRadius: 15,
+          }}>
+          {item.date}
+        </Text>
+      </View>
+      <View>
+        <Text style={styles.itemText}>{item.news}</Text>
+        <Text style={styles.itemText}>{item.newsOne}</Text>
+        <Text style={styles.itemText}>{item.newsTwo}</Text>
+        <Text style={styles.itemText}>{item.newsThree}</Text>
+        <Text style={styles.itemText}>{item.newsFour}</Text>
+      </View>
     </View>
   );
   return (
@@ -228,8 +246,7 @@ export function ScenesNavigate() {
         </View>
         <View style={styles.position}>
           <View style={{width: '50%', padding: 20}}>
-            <View
-              style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+            <View style={{flexDirection: 'row'}}>
               <Text style={styles.title}>Новости</Text>
               <View style={styles.paginationContainer}>
                 {newsTask.map((_, index) => (
@@ -247,7 +264,7 @@ export function ScenesNavigate() {
                   />
                 ))}
               </View>
-              <Text style={{color: 'white', fontSize: 18}}>14.05.2024</Text>
+              {/*<Text style={{color: 'white', fontSize: 18}}>14.05.2024</Text>*/}
             </View>
             <View />
             <View style={styles.carouselContainer}>
@@ -313,24 +330,25 @@ const styles = StyleSheet.create({
   },
   carouselContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
   },
   itemContainer: {
     width: 600, // Ширина элемента равна ширине экрана
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
-    padding: 10,
+    padding: 5,
   },
   itemText: {
     marginTop: 5,
     fontSize: 18,
-    marginBottom: 25,
+    marginBottom: 20,
     color: 'white',
   },
   paginationContainer: {
     flexDirection: 'row', // Горизонтальное расположение индикаторов пагинации
     marginTop: 10,
+    marginLeft: 170,
   },
   dot: {
     width: 10,

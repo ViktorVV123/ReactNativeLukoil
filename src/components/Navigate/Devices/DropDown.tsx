@@ -7,11 +7,11 @@ import {
   View,
 } from 'react-native';
 import {ArrowIcon} from '../../../icons/TableIcon/ArrowIcon.tsx';
-import {InputComponent} from './InputComponent.tsx';
 
-export const DropDown = () => {
+export const DropDown = ({list}: {list: string}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectItem, setSelectItem] = useState('Все');
+
   const isOpenDropDown = () => {
     setIsOpen(!isOpen);
   };
@@ -49,17 +49,15 @@ export const DropDown = () => {
         </TouchableOpacity>
         {isOpen && (
           <View style={styles.dropdown}>
-            {['Все', 'БННГ', 'БЭП', 'Гид', 'ЛЛК', 'ПБОТиОС', 'ПИС'].map(
-              (item: string, index: number) => (
-                <TouchableOpacity
-                  key={index}
-                  onPress={() => handleSelectItem(item)}>
-                  <Text style={{color: 'white', fontSize: 16, lineHeight: 50}}>
-                    {item}
-                  </Text>
-                </TouchableOpacity>
-              ),
-            )}
+            {list.map((item: string, index: number) => (
+              <TouchableOpacity
+                key={index}
+                onPress={() => handleSelectItem(item)}>
+                <Text style={{color: 'white', fontSize: 16, lineHeight: 50}}>
+                  {item}
+                </Text>
+              </TouchableOpacity>
+            ))}
           </View>
         )}
       </View>

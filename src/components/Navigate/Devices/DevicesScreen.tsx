@@ -45,7 +45,9 @@ export function DevicesScreen() {
       item.title.toLowerCase().includes(search.toLowerCase()),
     );
 
+  const list = ['Все', 'БННГ', 'БЭП', 'Гид', 'ЛЛК', 'ПБОТиОС', 'ПИС'];
   /* const searchTableDash = internalData.filter(el => el.name.toLowerCase().includes(searchTerm.toLowerCase())).filter(el => selection === 'Все' ? el : el.business_block === selection)*/
+  const lenghtList = table.length;
   return (
     <View style={styles.containerApp}>
       <View style={styles.containerText}>
@@ -60,7 +62,9 @@ export function DevicesScreen() {
                 marginTop: 10,
               }}
             />
-            <Text style={styles.text}>Опубликованные дэшборды: 20 </Text>
+            <Text style={styles.text}>
+              Опубликованные дэшборды: {lenghtList}{' '}
+            </Text>
           </View>
         </View>
         <View
@@ -69,7 +73,7 @@ export function DevicesScreen() {
             flexDirection: 'row',
             justifyContent: 'space-between',
           }}>
-          <DropDown />
+          <DropDown list={list} />
           <InputComponent setSearch={setSearch} search={search} />
         </View>
         <View style={{marginTop: 15}}>
