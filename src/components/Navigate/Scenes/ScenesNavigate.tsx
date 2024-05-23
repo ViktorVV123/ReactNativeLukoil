@@ -221,8 +221,10 @@ export function ScenesNavigate() {
           style={{
             color: 'white',
             marginBottom: 5,
-            backgroundColor: '#484646',
+            backgroundColor: '#424242',
             padding: 5,
+            paddingLeft: 6,
+            paddingRight: 6,
             borderRadius: 15,
           }}>
           {item.date}

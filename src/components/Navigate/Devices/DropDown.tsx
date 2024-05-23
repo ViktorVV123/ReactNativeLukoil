@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import {ArrowIcon} from '../../../icons/TableIcon/ArrowIcon.tsx';
 
-export const DropDown = ({list}: {list: string}) => {
+export const DropDown = ({list}: {list: any}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectItem, setSelectItem] = useState('Все');
 
