@@ -22,7 +22,7 @@ export const MenuIcon = () => {
       </TouchableOpacity>
       {openList && (
         <View style={styles.dropdown}>
-          {['Home', 'Devices', 'Scenes', 'Estates'].map(item => (
+          {['Home', 'Devices', 'HomeComponents', 'Estates'].map(item => (
             <TouchableOpacity key={item} onPress={() => handleNavigation(item)}>
               <Text style={styles.text}>{item}</Text>
             </TouchableOpacity>

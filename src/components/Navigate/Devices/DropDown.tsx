@@ -2,30 +2,32 @@ import React, {useState} from 'react';
 import {
   StyleSheet,
   Text,
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-  View,
-} from 'react-native';
+  TouchableOpacity, TouchableWithoutFeedback,
+  View
+} from "react-native";
 import {ArrowIcon} from '../../../icons/TableIcon/ArrowIcon.tsx';
 
-export const DropDown = ({list}: {list: any}) => {
-  const [isOpen, setIsOpen] = useState(false);
+export const DropDown = ({
+  list,
+  setIsOpen,
+  isOpen,
+}: {
+  list: any;
+  setIsOpen: any;
+  isOpen: any;
+}) => {
   const [selectItem, setSelectItem] = useState('Все');
 
   const isOpenDropDown = () => {
     setIsOpen(!isOpen);
   };
-  const isCloseDropDown = () => {
-    if (isOpen) {
-      setIsOpen(false);
-    }
-  };
+
   const handleSelectItem = (item: string) => {
     setSelectItem(item);
     setIsOpen(false);
   };
   return (
-    <TouchableWithoutFeedback onPress={isCloseDropDown}>
+    <TouchableWithoutFeedback onPress={() => setIsOpen(false)}>
       <View
         style={{
           flexDirection: 'row',

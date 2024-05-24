@@ -1,18 +1,13 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-
-import {SwapButton} from './SwapButton.tsx';
-import {CardComponent} from './CardComponent.tsx';
+import {StyleSheet, Text, View} from 'react-native';
+import {PicturePagination} from './PicturePagination.tsx';
+import {UsersPagination} from './UsersPagination.tsx';
 
 export function EstatesNavigate() {
   return (
     <View style={styles.containerApp}>
-      <View>
-        <SwapButton />
-      </View>
-     {/* <View>
-        <CardComponent />
-      </View>*/}
+      <UsersPagination />
+      <PicturePagination />
     </View>
   );
 }
@@ -20,9 +15,8 @@ export function EstatesNavigate() {
 const styles = StyleSheet.create({
   containerApp: {
     flex: 1,
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start',
-    backgroundColor: '#2e2e2e', // Темный фон
+    /*  backgroundColor: '#2e2e2e', // Темный фон*/
+    flexDirection: 'row',
     padding: 20,
   },
 });

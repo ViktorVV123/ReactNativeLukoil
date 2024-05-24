@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, TouchableWithoutFeedback, View} from 'react-native';
 import {DropDown} from './DropDown.tsx';
 import {TableComponent} from './TableComponent.tsx';
 import {PageScore} from './PageScore.tsx';
@@ -7,6 +7,7 @@ import {InputComponent} from './InputComponent.tsx';
 
 export function DevicesScreen() {
   const [search, setSearch] = useState('');
+  const [isOpen, setIsOpen] = useState(false);
   const table = [
     {
       id: 1,
@@ -44,7 +45,11 @@ export function DevicesScreen() {
     table.filter(item =>
       item.title.toLowerCase().includes(search.toLowerCase()),
     );
-
+  const isCloseDropDown = () => {
+    if (isOpen) {
+      setIsOpen(false);
+    }
+  };
   const list = ['Все', 'БННГ', 'БЭП', 'Гид', 'ЛЛК', 'ПБОТиОС', 'ПИС'];
   /* const searchTableDash = internalData.filter(el => el.name.toLowerCase().includes(searchTerm.toLowerCase())).filter(el => selection === 'Все' ? el : el.business_block === selection)*/
   const lenghtList = table.length;
@@ -73,7 +78,9 @@ export function DevicesScreen() {
             flexDirection: 'row',
             justifyContent: 'space-between',
           }}>
-          <DropDown list={list} />
+          <TouchableWithoutFeedback onPress={() => setIsOpen(false)}>
+            <DropDown list={list} isOpen={isOpen} setIsOpen={setIsOpen} />
+          </TouchableWithoutFeedback>
           <InputComponent setSearch={setSearch} search={search} />
         </View>
         <View style={{marginTop: 15}}>

@@ -9,9 +9,9 @@ import {
 } from 'react-native';
 import {EventsComponent} from './EventsComponent.tsx';
 import {Calendars} from './Calendars.tsx';
-import {SwapButton} from '../Estates/SwapButton.tsx';
+import {SwapButton} from './SwapButton.tsx';
 
-export function ScenesNavigate() {
+export function HomeNavigate() {
   const cases = {
     '2024-05-03': {
       marked: true,
