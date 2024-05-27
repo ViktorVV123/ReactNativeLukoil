@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import {VectorIcon} from '../../../icons/TableIcon/VectorIcon.tsx';
 
 import {ListIcon} from '../../../icons/TableIcon/ListIcon.tsx';
@@ -17,27 +17,29 @@ export const TableComponent = ({
   url: string;
 }) => {
   return (
-    <View style={styles.container}>
-      <View style={styles.row}>
-        <View style={styles.cellLeft}>
-          <VectorIcon />
-          <View style={styles.line} />
-          <StarIcon />
-          <View style={styles.line} />
-          <View style={styles.textContainer}>
-            <Text style={styles.titleText}>{title}</Text>
-            <Text style={styles.subTitleText}>{subTitle}</Text>
+    <ScrollView>
+      <View style={styles.container}>
+        <View style={styles.row}>
+          <View style={styles.cellLeft}>
+            <VectorIcon />
+            <View style={styles.line} />
+            <StarIcon />
+            <View style={styles.line} />
+            <View style={styles.textContainer}>
+              <Text style={styles.titleText}>{title}</Text>
+              <Text style={styles.subTitleText}>{subTitle}</Text>
+            </View>
           </View>
-        </View>
-        <View style={styles.cellRight}>
-          <Text style={styles.descriptionText}>{text}</Text>
-          <View style={styles.line} />
-          <View style={styles.iconContainer}>
-            <ListIcon url={url} />
+          <View style={styles.cellRight}>
+            <Text style={styles.descriptionText}>{text}</Text>
+            <View style={styles.line} />
+            <View style={styles.iconContainer}>
+              <ListIcon url={url} />
+            </View>
           </View>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -45,7 +47,6 @@ const styles = StyleSheet.create({
   container: {
     borderColor: 'black',
     borderWidth: 1,
-    overflow: 'hidden',
   },
   headerRow: {
     flexDirection: 'row',
