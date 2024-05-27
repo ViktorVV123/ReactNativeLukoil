@@ -1,14 +1,14 @@
 import * as React from 'react';
 import Svg, {Path} from 'react-native-svg';
 import {TouchableOpacity} from 'react-native';
-import {useState} from 'react';
 
-export const StarIcon = () => {
-  const [color, setColor] = useState(false);
-
-  const colorChange = () => {
-    setColor(!color);
-  };
+export const StarIcon = ({
+  colorChange,
+  color,
+}: {
+  colorChange: any;
+  color: any;
+}) => {
   return (
     <TouchableOpacity onPress={colorChange}>
       <Svg height={30} viewBox="0 -960 960 960" width={30} fill="#EEEEEE">

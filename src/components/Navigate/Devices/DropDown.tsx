@@ -2,19 +2,24 @@ import React, {useState} from 'react';
 import {
   StyleSheet,
   Text,
-  TouchableOpacity, TouchableWithoutFeedback,
-  View
-} from "react-native";
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
 import {ArrowIcon} from '../../../icons/TableIcon/ArrowIcon.tsx';
 
 export const DropDown = ({
   list,
   setIsOpen,
   isOpen,
+  setSelectedCategory,
+  selectedCategory,
 }: {
   list: any;
   setIsOpen: any;
   isOpen: any;
+  setSelectedCategory: any;
+  selectedCategory: any;
 }) => {
   const [selectItem, setSelectItem] = useState('Все');
 
@@ -26,6 +31,7 @@ export const DropDown = ({
     setSelectItem(item);
     setIsOpen(false);
   };
+
   return (
     <TouchableWithoutFeedback onPress={() => setIsOpen(false)}>
       <View
@@ -54,7 +60,10 @@ export const DropDown = ({
             {list.map((item: string, index: number) => (
               <TouchableOpacity
                 key={index}
-                onPress={() => handleSelectItem(item)}>
+                onPress={() => {
+                  handleSelectItem(item);
+                  setSelectedCategory(item);
+                }}>
                 <Text style={{color: 'white', fontSize: 16, lineHeight: 50}}>
                   {item}
                 </Text>

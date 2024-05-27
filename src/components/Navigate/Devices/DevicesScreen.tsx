@@ -8,12 +8,14 @@ import {
 } from 'react-native';
 import {DropDown} from './DropDown.tsx';
 import {TableComponent} from './TableComponent.tsx';
-import {PageScore} from './PageScore.tsx';
 import {InputComponent} from './InputComponent.tsx';
 
 export function DevicesScreen() {
   const [search, setSearch] = useState('');
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState('Все');
+  const list = ['Все', 'БННГ', 'БЭП', 'ГиД', 'ЛЛК', 'ПБОТиОС', 'ПИС'];
+  const [favorite, setFavorite] = useState([]);
   const table = [
     {
       id: 1,
@@ -144,19 +146,13 @@ export function DevicesScreen() {
       url: 'https://google.com/',
     },
   ];
-  const filterTable =
-    /*table.filter(item =>
-    item.title.toLowerCase().includes(search.toLowerCase()),*/
-    table.filter(item =>
-      item.title.toLowerCase().includes(search.toLowerCase()),
-    );
-  const isCloseDropDown = () => {
-    if (isOpen) {
-      setIsOpen(false);
-    }
-  };
-  const list = ['Все', 'БННГ', 'БЭП', 'Гид', 'ЛЛК', 'ПБОТиОС', 'ПИС'];
-  /* const searchTableDash = internalData.filter(el => el.name.toLowerCase().includes(searchTerm.toLowerCase())).filter(el => selection === 'Все' ? el : el.business_block === selection)*/
+  const filterTable = table.filter(item =>
+    item.title.toLowerCase().includes(search.toLowerCase()),
+  );
+  const filteredTable =
+    selectedCategory === 'Все'
+      ? filterTable
+      : filterTable.filter(item => item.subTitle === selectedCategory);
   const lenghtList = table.length;
   return (
     <View style={styles.containerApp}>
@@ -184,7 +180,13 @@ export function DevicesScreen() {
             justifyContent: 'space-between',
           }}>
           <TouchableWithoutFeedback onPress={() => setIsOpen(false)}>
-            <DropDown list={list} isOpen={isOpen} setIsOpen={setIsOpen} />
+            <DropDown
+              list={list}
+              isOpen={isOpen}
+              setIsOpen={setIsOpen}
+              selectedCategory={selectedCategory}
+              setSelectedCategory={setSelectedCategory}
+            />
           </TouchableWithoutFeedback>
           <InputComponent setSearch={setSearch} search={search} />
         </View>
@@ -194,11 +196,11 @@ export function DevicesScreen() {
               <Text style={styles.headerText}>Опубликованные дэшборды</Text>
             </View>
             <View style={styles.headerCell}>
-              <Text style={styles.headerText}>Описание</Text>
+              <Text style={styles.headerText}>Описание </Text>
             </View>
           </View>
           <ScrollView style={{marginBottom: 400}}>
-            {filterTable.map(el => (
+            {filteredTable.map(el => (
               <ScrollView key={el.id}>
                 <TableComponent
                   key={el.id}
