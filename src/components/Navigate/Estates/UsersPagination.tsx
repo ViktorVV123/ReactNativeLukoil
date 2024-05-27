@@ -1,78 +1,73 @@
 import React, {useState, useEffect} from 'react';
 import {
-  FlatList,
   View,
   Text,
-  StyleSheet,
+  FlatList,
   ActivityIndicator,
+  StyleSheet,
 } from 'react-native';
-
-const URL_FETCH = 'https://randomuser.me/api/?page=3&results=10&seed=abc';
 
 export const UsersPagination = () => {
   const [isLoading, setLoading] = useState(true);
-  const [data, setData] = useState<any>([]);
+  const [data, setData] = useState([]);
+  const [page, setPage] = useState(1);
+  const [isFetchingMore, setFetchingMore] = useState(false);
 
-  const getMovies = async () => {
+  const getUsers = async pageNumber => {
     try {
       const response = await fetch(
-        'https://randomuser.me/api/?page=3&results=10&seed=abc',
+        'https://randomuser.me/api/?page=${pageNumber}&results=10&seed=abc',
       );
       const json = await response.json();
-      setData(json);
+      setData(prevData => [...prevData, ...json.results]);
     } catch (error) {
       console.error(error);
     } finally {
       setLoading(false);
+      setFetchingMore(false);
     }
   };
 
   useEffect(() => {
-    getMovies();
-  }, []);
-  const tasksHandler = el => {
-    return (
-      <View style={{marginBottom: 20}}>
-        {data?.results?.map((el: any) => (
-          <View style={{marginBottom: 20}}>
-            <Text style={{fontSize: 20}}>{el.name.title}</Text>
-            <Text style={{fontSize: 20}}>{el.name.first}</Text>
-            <Text style={{fontSize: 20}}>{el.name.last}</Text>
-            <Text style={{fontSize: 20}}>{el.location.street.number}</Text>
-            <Text style={{fontSize: 20}}>{el.location.street.name}</Text>
-            <Text style={{fontSize: 20}}>{el.email}</Text>
-          </View>
-        ))}
-      </View>
-    );
+    getUsers(page);
+  }, [page]);
+
+  const loadMoreUsers = () => {
+    if (!isFetchingMore) {
+      setFetchingMore(true);
+      setPage(prevPage => prevPage + 1);
+    }
   };
 
+  const renderItem = ({item}: {item: any}) => (
+    <View style={styles.containerItem}>
+      <Text style={styles.item}>
+        {item.name.title} {item.name.first} {item.name.last}
+      </Text>
+      <Text style={styles.item}>
+        {item.location.street.number} {item.location.street.name}
+      </Text>
+      <Text style={styles.item}>{item.email}</Text>
+    </View>
+  );
+
   return (
-    <View style={{flex: 1, padding: 24}}>
+    <View style={styles.container}>
       {isLoading ? (
-        <ActivityIndicator />
+        <ActivityIndicator size="large" color="#0000ff" />
       ) : (
-        <View>
-          {/*        {data?.results?.map((el: any) => (
-            <View style={{marginBottom: 20}}>
-              <Text style={{fontSize: 20}}>{el.name.title}</Text>
-              <Text style={{fontSize: 20}}>{el.name.first}</Text>
-              <Text style={{fontSize: 20}}>{el.name.last}</Text>
-              <Text style={{fontSize: 20}}>{el.location.street.number}</Text>
-              <Text style={{fontSize: 20}}>{el.location.street.name}</Text>
-              <Text style={{fontSize: 20}}>{el.email}</Text>
-            </View>
-          ))}*/}
-          <FlatList
-            data={data}
-            keyExtractor={({id}) => id}
-            renderItem={({item}) => (
-              <Text>
-                {item.name.title} {item.releaseYear}
-              </Text>
-            )}
-          />
-        </View>
+        <FlatList
+          data={data}
+          keyExtractor={(item, index) => `${item.login.uuid}-${index}`}
+          renderItem={renderItem}
+          onEndReached={loadMoreUsers}
+          onEndReachedThreshold={0.3}
+          ListFooterComponent={
+            isFetchingMore ? (
+              <ActivityIndicator size="small" color="#0000ff" />
+            ) : null
+          }
+        />
       )}
     </View>
   );
@@ -82,6 +77,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 24,
+    marginBottom: 100,
+  },
+  containerItem: {
+    marginBottom: 20,
   },
   item: {
     padding: 20,

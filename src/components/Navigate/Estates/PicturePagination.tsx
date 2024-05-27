@@ -4,7 +4,7 @@ import {View, Text, StyleSheet} from 'react-native';
 export const PicturePagination = () => {
   return (
     <View style={styles.container}>
-      <Text>123</Text>
+      <Text>1234</Text>
     </View>
   );
 };
