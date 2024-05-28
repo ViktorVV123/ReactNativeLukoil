@@ -13,7 +13,6 @@ export const DropDown = ({
   setIsOpen,
   isOpen,
   setSelectedCategory,
-  selectedCategory,
 }: {
   list: any;
   setIsOpen: any;

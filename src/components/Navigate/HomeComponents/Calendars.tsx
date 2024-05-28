@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, StyleSheet, Text, Button} from 'react-native';
+import {View, StyleSheet, Text} from 'react-native';
 import {Calendar, LocaleConfig} from 'react-native-calendars';
 
 export const Calendars = ({cases}: {cases: any}) => {
@@ -60,8 +60,8 @@ export const Calendars = ({cases}: {cases: any}) => {
   };
 
   const getMarkedDates = () => {
-    let markedDates = {};
-    Object.keys(cases).forEach(date => {
+    let markedDates: any = {};
+    Object.keys(cases).forEach((date: any) => {
       markedDates[date] = {
         customStyles: {
           // Настройка внешнего вида бордера

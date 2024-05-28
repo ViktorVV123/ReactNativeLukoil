@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import {VectorIcon} from '../../../icons/TableIcon/VectorIcon.tsx';
 
@@ -10,16 +10,20 @@ export const TableComponent = ({
   subTitle,
   text,
   url,
+  colorChange,
+  favorite,
 }: {
   title: string;
   subTitle: string;
   text: string;
   url: string;
+  colorChange: any;
+  favorite: any;
 }) => {
-  const [color, setColor] = useState(false);
+  /* const [color, setColor] = useState(false);
   const colorChange = () => {
     setColor(!color);
-  };
+  };*/
   return (
     <ScrollView>
       <View style={styles.container}>
@@ -27,7 +31,7 @@ export const TableComponent = ({
           <View style={styles.cellLeft}>
             <VectorIcon />
             <View style={styles.line} />
-            <StarIcon colorChange={colorChange} color={color} />
+            <StarIcon colorChange={colorChange} favorite={favorite} />
             <View style={styles.line} />
             <View style={styles.textContainer}>
               <Text style={styles.titleText}>{title}</Text>

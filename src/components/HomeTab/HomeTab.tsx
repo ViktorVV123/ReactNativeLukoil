@@ -100,9 +100,9 @@ export const HomeTab = () => {
     },
   ];
 
-  const [selectText, setSelectText] = useState('');
-  const handlePress = (id: string) => {
-    const item = data.find(items => items.id === id);
+  const [_, setSelectText] = useState('');
+  const handlePress = (id: string): void => {
+    const item: any = data.find(items => items.id === id);
     setSelectText(item);
   };
   const {toggleModal, updateModalContent} = useModal();
