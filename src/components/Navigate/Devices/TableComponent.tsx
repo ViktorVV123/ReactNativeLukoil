@@ -1,7 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import {VectorIcon} from '../../../icons/TableIcon/VectorIcon.tsx';
-
 import {ListIcon} from '../../../icons/TableIcon/ListIcon.tsx';
 import {StarIcon} from '../../../icons/TableIcon/StarIcon.tsx';
 
@@ -12,6 +11,7 @@ export const TableComponent = ({
   url,
   colorChange,
   favorite,
+  toggleFavorite,
 }: {
   title: string;
   subTitle: string;
@@ -19,6 +19,7 @@ export const TableComponent = ({
   url: string;
   colorChange: any;
   favorite: any;
+  toggleFavorite: any;
 }) => {
   /* const [color, setColor] = useState(false);
   const colorChange = () => {
@@ -31,7 +32,11 @@ export const TableComponent = ({
           <View style={styles.cellLeft}>
             <VectorIcon />
             <View style={styles.line} />
-            <StarIcon colorChange={colorChange} favorite={favorite} />
+            <StarIcon
+              colorChange={colorChange}
+              favorite={favorite}
+              toggleFavorite={toggleFavorite}
+            />
             <View style={styles.line} />
             <View style={styles.textContainer}>
               <Text style={styles.titleText}>{title}</Text>
