@@ -26,6 +26,8 @@ export function DevicesScreen() {
       ? filterTable
       : filterTable.filter(item => item.subTitle === selectedCategory);
   const lengthList = table.length;
+  const LenghtFavorite = table.filter(item => item.favorite === true);
+  const lengthFavorite = LenghtFavorite.length;
   const colorChange = (id: number): any => {
     const item: any = filteredTable.find(items => items.id === id);
     setColor(item);
@@ -36,6 +38,7 @@ export function DevicesScreen() {
       <View style={styles.containerText}>
         <View>
           <Text style={styles.textH1}>Дэшборды</Text>
+          <Text>{lengthFavorite}</Text>
           <View>
             <View
               style={{
@@ -65,7 +68,11 @@ export function DevicesScreen() {
               setSelectedCategory={setSelectedCategory}
             />
           </TouchableWithoutFeedback>
-          <InputComponent setSearch={setSearch} search={search} />
+          <InputComponent
+            lengthFavorite={lengthFavorite}
+            setSearch={setSearch}
+            search={search}
+          />
         </View>
         <View style={{marginTop: 15}}>
           <View style={styles.headerRow}>

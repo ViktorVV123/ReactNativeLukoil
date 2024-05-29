@@ -6,9 +6,11 @@ import {SearchIcon} from '../../../icons/TableIcon/SearchIcon.tsx';
 export const InputComponent = ({
   setSearch,
   search,
+  lengthFavorite,
 }: {
   setSearch: any;
   search: any;
+  lengthFavorite: any;
 }) => {
   return (
     <View
@@ -21,7 +23,7 @@ export const InputComponent = ({
         <SwitchIcon />
       </View>
       <Text style={{color: 'white', fontSize: 16, verticalAlign: 'middle'}}>
-        Только избранные 0
+        Только избранные {lengthFavorite}
       </Text>
       <View
         style={{
