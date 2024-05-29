@@ -38,7 +38,6 @@ export function DevicesScreen() {
       <View style={styles.containerText}>
         <View>
           <Text style={styles.textH1}>Дэшборды</Text>
-          <Text>{lengthFavorite}</Text>
           <View>
             <View
               style={{
