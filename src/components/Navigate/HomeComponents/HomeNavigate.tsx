@@ -70,9 +70,6 @@ export function HomeNavigate() {
   );
   return (
     <View style={styles.containerApp}>
-      <View>
-        <Text style={{color: 'white', fontSize: 22}}>123</Text>
-      </View>
       <SwapButton />
       <ScrollView>
         <View>

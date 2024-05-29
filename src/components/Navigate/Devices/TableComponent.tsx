@@ -20,6 +20,7 @@ export const TableComponent = ({
   url: string;
   colorChange: any;
   favorite: any;
+  toggleFavorite: any;
 }) => {
   /* const [color, setColor] = useState(false);
   const colorChange = () => {
