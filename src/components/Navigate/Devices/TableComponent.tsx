@@ -12,6 +12,7 @@ export const TableComponent = ({
   url,
   colorChange,
   favorite,
+  toggleFavorite,
 }: {
   title: string;
   subTitle: string;
@@ -31,7 +32,7 @@ export const TableComponent = ({
           <View style={styles.cellLeft}>
             <VectorIcon />
             <View style={styles.line} />
-            <StarIcon colorChange={colorChange} favorite={favorite} />
+            <StarIcon colorChange={colorChange} favorite={favorite} toggleFavorite={toggleFavorite} />
             <View style={styles.line} />
             <View style={styles.textContainer}>
               <Text style={styles.titleText}>{title}</Text>

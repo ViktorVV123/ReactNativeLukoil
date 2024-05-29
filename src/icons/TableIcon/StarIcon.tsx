@@ -5,12 +5,13 @@ import {TouchableOpacity} from 'react-native';
 export const StarIcon = ({
   colorChange,
   favorite,
+  toggleFavorite,
 }: {
   colorChange: any;
   favorite: any;
 }) => {
   return (
-    <TouchableOpacity onPress={colorChange}>
+    <TouchableOpacity onPress={toggleFavorite}>
       <Svg height={30} viewBox="0 -960 960 960" width={30} fill="#EEEEEE">
         <Path
           d={
