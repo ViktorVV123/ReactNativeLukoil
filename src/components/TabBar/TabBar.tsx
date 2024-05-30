@@ -12,6 +12,8 @@ import {EstatesNavigate} from '../Navigate/Estates/EstatesNavigate.tsx';
 import {CloudIcon} from '../../icons/HeaderIcon/CloudIcon.tsx';
 import {ChartIcon} from '../../icons/HeaderIcon/ChartIcon.tsx';
 import {MenuIcon} from '../../icons/HeaderIcon/MenuIcon.tsx';
+import {MeetingNavigate} from '../Navigate/Meeting/MeetingNavigate.tsx';
+import {MeetingIcon} from '../../icons/MeetingIcon/MeetingIcon.tsx';
 
 const defaultHeaderStyles = {
   headerStyle: {backgroundColor: '#000000'},
@@ -55,17 +57,28 @@ export const TabBar = () => {
         name="Home"
         component={HomeNavigate}
         options={{
-          tabBarIcon: ({color}: {color: string}) => <HomeIcon fill={color} />,
+          tabBarIcon: ({color}: {color: string}) => (
+            <HomeIcon fill={color} />
+          ),
           ...defaultHeaderStyles,
         }}
       />
-
       <Tab.Screen
         name="Devices"
         component={DevicesScreen}
         options={{
           tabBarIcon: ({color}: {color: string}) => (
             <DevicesIcon fill={color} />
+          ),
+          ...defaultHeaderStyles,
+        }}
+      />
+      <Tab.Screen
+        name="Meeting"
+        component={MeetingNavigate}
+        options={{
+          tabBarIcon: ({color}: {color: string}) => (
+            <MeetingIcon fill={color} />
           ),
           ...defaultHeaderStyles,
         }}
