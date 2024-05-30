@@ -1,5 +1,5 @@
-import React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import React, {useState} from 'react';
+import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
 import {SortingMeet} from './SortingMeet.tsx';
 import {InputMeet} from './InputMeet.tsx';
 import {StartMeet} from './StartMeet.tsx';
@@ -10,6 +10,10 @@ export const MeetingNavigate = () => {
   const slice = Math.ceil(casesTwo.length / 2);
   const firstSlice = casesTwo.slice(0, slice);
   const SecondSlice = casesTwo.slice(slice);
+  const [accordion, setAccordion] = useState(true);
+  const accordionView = () => {
+    setAccordion(!accordion);
+  };
 
   return (
     <View style={styles.container}>
@@ -25,17 +29,20 @@ export const MeetingNavigate = () => {
         </View>
       </View>
       <View>
-        <Text style={[styles.textColor, styles.text]}>
-          Предстоящие совещания
-        </Text>
-        {casesTwo.map(el => (
-          <StartMeet
-            test={el.test}
-            category={el.category}
-            date={el.date}
-            time={el.time}
-          />
-        ))}
+        <TouchableOpacity onPress={accordionView}>
+          <Text style={[styles.textColor, styles.text]}>
+            Предстоящие совещания
+          </Text>
+        </TouchableOpacity>
+        <View>
+          {accordion ? (
+            <View>
+              <StartMeet firstSlice={firstSlice} SecondSlice={SecondSlice} />
+            </View>
+          ) : (
+            ''
+          )}
+        </View>
       </View>
       <View>
         <ArchiveMeet />
