@@ -22,7 +22,7 @@ export const MenuIcon = () => {
       </TouchableOpacity>
       {openList && (
         <View style={styles.dropdown}>
-          {['Home', 'Devices', 'Scenes', 'Estates'].map(item => (
+          {['Home', 'Devices', 'HomeComponents', 'Estates'].map(item => (
             <TouchableOpacity key={item} onPress={() => handleNavigation(item)}>
               <Text style={styles.text}>{item}</Text>
             </TouchableOpacity>
@@ -38,7 +38,6 @@ const styles = StyleSheet.create({
     width: 100,
   },
   dropdown: {
-    width: '100%',
     marginTop: 20,
     position: 'absolute',
     top: 30, // Поднято, чтобы избежать перекрытия с кнопкой

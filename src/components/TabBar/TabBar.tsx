@@ -6,15 +6,17 @@ import {HomeIcon} from '../../icons/TabBarIcon/HomeIcon.tsx';
 import {ScenesIcon} from '../../icons/TabBarIcon/ScenesIcon.tsx';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {HomeTab} from '../HomeTab/HomeTab.tsx';
-import {DevicesScreen} from '../Navigate/DevicesScreen.tsx';
-import {ScenesNavigate} from '../Navigate/ScenesNavigate.tsx';
-import {EstatesNavigate} from '../Navigate/EstatesNavigate.tsx';
+import {DevicesScreen} from '../Navigate/Devices/DevicesScreen.tsx';
+import {HomeNavigate} from '../Navigate/HomeComponents/HomeNavigate.tsx';
+import {EstatesNavigate} from '../Navigate/Estates/EstatesNavigate.tsx';
 import {CloudIcon} from '../../icons/HeaderIcon/CloudIcon.tsx';
 import {ChartIcon} from '../../icons/HeaderIcon/ChartIcon.tsx';
 import {MenuIcon} from '../../icons/HeaderIcon/MenuIcon.tsx';
+import {MeetingNavigate} from '../Navigate/Meeting/MeetingNavigate.tsx';
+import {MeetingIcon} from '../../icons/MeetingIcon/MeetingIcon.tsx';
 
 const defaultHeaderStyles = {
-  headerStyle: {backgroundColor: '#06165e'},
+  headerStyle: {backgroundColor: '#000000'},
   headerTintColor: 'white',
   headerRight: () => (
     <View style={{flexDirection: 'row', marginRight: 5}}>
@@ -44,7 +46,7 @@ export const TabBar = () => {
         tabBarActiveTintColor: 'white',
         tabBarInactiveTintColor: '#b6b4b4',
         tabBarStyle: {
-          backgroundColor: '#6A8FE6',
+          backgroundColor: '#000000',
           borderTopRightRadius: 25,
           borderTopLeftRadius: 25,
           position: 'absolute',
@@ -53,9 +55,11 @@ export const TabBar = () => {
       }}>
       <Tab.Screen
         name="Home"
-        component={HomeTab}
+        component={HomeNavigate}
         options={{
-          tabBarIcon: ({color}) => <HomeIcon fill={color} />,
+          tabBarIcon: ({color}: {color: string}) => (
+            <HomeIcon fill={color} />
+          ),
           ...defaultHeaderStyles,
         }}
       />
@@ -70,10 +74,20 @@ export const TabBar = () => {
         }}
       />
       <Tab.Screen
-        name="Scenes"
-        component={ScenesNavigate}
+        name="Meeting"
+        component={MeetingNavigate}
         options={{
-          tabBarIcon: ({color}: {color: string}) => <ScenesIcon fill={color} />,
+          tabBarIcon: ({color}: {color: string}) => (
+            <MeetingIcon fill={color} />
+          ),
+          ...defaultHeaderStyles,
+        }}
+      />
+      <Tab.Screen
+        name="Scenes"
+        component={HomeTab}
+        options={{
+          tabBarIcon: ({color}) => <ScenesIcon fill={color} />,
           ...defaultHeaderStyles,
         }}
       />
