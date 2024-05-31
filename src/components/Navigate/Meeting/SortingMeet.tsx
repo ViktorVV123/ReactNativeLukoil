@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {TouchableOpacity} from 'react-native';
 import DatePicker from 'react-native-date-picker';
-import {CalendarIcon} from '../../../icons/MeetingIcon/CalendarIcon.tsx';
+/*import {CalendarIcon} from '../../../icons/MeetingIcon/CalendarIcon.tsx';*/
 import {CalendarTwo} from '../../../icons/MeetingIcon/CalendarTwo.tsx';
 
 export const SortingMeet = () => {
