@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, StyleSheet, ScrollView} from 'react-native';
+import {Text, View, StyleSheet} from 'react-native';
 
 export const StartMeet = ({
   firstSlice,
@@ -9,38 +9,130 @@ export const StartMeet = ({
   SecondSlice: any;
 }) => {
   return (
-    <ScrollView>
-      <View style={styles.container}>
-        <View style={{flex: 2, marginRight: 15}}>
-          {firstSlice.map((el: any, index: string) => (
-            <View key={index} style={styles.containerCard}>
-              <View style={styles.line} />
-              <View>
-                <Text style={[styles.textColor, styles.texth1]}>{el.test}</Text>
-                <Text style={[styles.textColor, styles.time]}>{el.time}</Text>
-                <Text style={[styles.textColor, styles.category]}>
-                  {el.category}
-                </Text>
+    <View style={styles.container}>
+      <View style={{flex: 2, marginRight: 15}}>
+        {firstSlice.map((el: any, index: string) => (
+          <View key={index} style={styles.containerCard}>
+            <View style={styles.line} />
+            <View>
+              <Text style={[styles.textColor, styles.texth1]}>{el.test}</Text>
+              <Text style={[styles.textColor, styles.time]}>{el.time}</Text>
+              <View
+                style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+                <View>
+                  <Text
+                    style={[
+                      styles.textColor,
+                      styles.category,
+                      {textAlign: 'center', marginTop: 7},
+                    ]}>
+                    {el.category}
+                  </Text>
+                </View>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    padding: 5,
+                    marginRight: 10,
+                  }}>
+                  <Text
+                    style={[
+                      styles.textColor,
+                      {
+                        marginRight: 20,
+                        backgroundColor: '#a4a2a2',
+                        paddingLeft: 6,
+                        paddingRight: 6,
+                        paddingBottom: 4,
+                        paddingTop: 4,
+                        borderRadius: 10,
+                      },
+                    ]}>
+                    Повестка
+                  </Text>
+                  <Text
+                    style={[
+                      styles.textColor,
+                      {
+                        backgroundColor: '#c71b1b',
+                        paddingLeft: 6,
+                        paddingRight: 6,
+                        paddingBottom: 4,
+                        paddingTop: 4,
+                        borderRadius: 10,
+                      },
+                    ]}>
+                    Материалы
+                  </Text>
+                </View>
               </View>
             </View>
-          ))}
-        </View>
-        <View style={{flex: 2}}>
-          {SecondSlice.map((el: any, index: string) => (
-            <View key={index} style={styles.containerCard}>
-              <View style={styles.line} />
-              <View>
-                <Text style={[styles.textColor, styles.texth1]}>{el.test}</Text>
-                <Text style={[styles.textColor, styles.time]}>{el.time}</Text>
-                <Text style={[styles.textColor, styles.category]}>
-                  {el.category}
-                </Text>
-              </View>
-            </View>
-          ))}
-        </View>
+          </View>
+        ))}
       </View>
-    </ScrollView>
+      <View style={{flex: 2}}>
+        {SecondSlice.map((el: any, index: string) => (
+          <View key={index} style={styles.containerCard}>
+            <View style={styles.line} />
+            <View>
+              <Text style={[styles.textColor, styles.texth1]}>{el.test}</Text>
+              <Text style={[styles.textColor, styles.time]}>{el.time}</Text>
+              <View
+                style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+                <View>
+                  <Text
+                    style={[
+                      styles.textColor,
+                      styles.category,
+                      {textAlign: 'center', marginTop: 7},
+                    ]}>
+                    {el.category}
+                  </Text>
+                </View>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    padding: 5,
+                    marginRight: 10,
+                  }}>
+                  <Text
+                    style={[
+                      styles.textColor,
+                      {
+                        marginRight: 20,
+                        backgroundColor: '#a4a2a2',
+                        paddingLeft: 6,
+                        paddingRight: 6,
+                        paddingBottom: 4,
+                        paddingTop: 4,
+                        borderRadius: 10,
+                      },
+                    ]}>
+                    Повестка
+                  </Text>
+                  <Text
+                    style={[
+                      styles.textColor,
+                      {
+                        backgroundColor: '#c71b1b',
+                        paddingLeft: 6,
+                        paddingRight: 6,
+                        paddingBottom: 4,
+                        paddingTop: 4,
+                        borderRadius: 10,
+                      },
+                    ]}>
+                    Материалы
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        ))}
+      </View>
+    </View>
   );
 };
 const styles = StyleSheet.create({
