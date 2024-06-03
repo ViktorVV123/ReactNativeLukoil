@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-import {SortingMeet} from './SortingMeet.tsx';
+/*import {SortingMeet} from './SortingMeet.tsx';*/
 import {StartMeet} from './StartMeet.tsx';
 import {ArchiveMeet} from './ArchiveMeet.tsx';
 import casesTwo from '../../../assets/casesTwo.json';
@@ -36,7 +36,7 @@ export const MeetingNavigate = () => {
         <Text style={{color: 'white', fontSize: 25, marginRight: 40}}>
           Совещания
         </Text>
-        <SortingMeet />
+        {/*<SortingMeet />*/}
       </View>
       <View>
         <ScrollView>
